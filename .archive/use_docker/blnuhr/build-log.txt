@@ -1,0 +1,39 @@
+# started:  2023-06-21T15:30:17-05:00
+#1 [internal] load .dockerignore
+#1 transferring context: 2B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 1.65kB done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/mambaorg/micromamba:latest
+#3 DONE 0.2s
+
+#4 [1/7] FROM docker.io/mambaorg/micromamba:latest@sha256:7ff048d9136e782e10492d9d83aba8244e4aae7a655fd9e2abfbda4c2dcc1f86
+#4 DONE 0.0s
+
+#5 [4/7] RUN   micromamba create     --root-prefix mm     --prefix "/home/mm/envs/blnuhr"     -y     -c defaults     -c conda-forge     "pyqt=5"     pip     libglib
+#5 CACHED
+
+#6 [5/7] RUN /home/mm/envs/blnuhr/bin/pip install blnuhr
+#6 CACHED
+
+#7 [2/7] WORKDIR /home
+#7 CACHED
+
+#8 [3/7] RUN DEBIAN_FRONTEND=noninteractive apt-get update  -y     && DEBIAN_FRONTEND=noninteractive apt-get install -y          libgl1 libglib2.0-0
+#8 CACHED
+
+#9 [6/7] RUN ls -lAFgh "/home/mm/envs/blnuhr/bin/blnuhr"
+#9 CACHED
+
+#10 [7/7] RUN   (echo "#!/bin/bash" > "/home/blnuhr.sh")   && (echo "export QT_QPA_PLATFORM=offscreen" >> "/home/blnuhr.sh")   && (echo "export QT_GRAPHICSSYSTEM=native" >> "/home/blnuhr.sh")   && (echo "/home/mm/envs/blnuhr/bin/blnuhr &" >> "/home/blnuhr.sh")   && (chmod +x "/home/blnuhr.sh")
+#10 DONE 0.3s
+
+#11 exporting to image
+#11 exporting layers done
+#11 writing image sha256:31e2d55f6a5c7b000a84bd989541a28bde1329b88e7624952238a7531cfcaaf8 done
+#11 naming to docker.io/prjemian/blnuhr:latest done
+#11 DONE 0.0s
+# finished:  2023-06-21T15:30:17-05:00

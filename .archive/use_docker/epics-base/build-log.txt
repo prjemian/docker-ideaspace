@@ -1,0 +1,61 @@
+# started:  2023-06-23T07:59:20-05:00
+#1 [internal] load .dockerignore
+#1 transferring context: 2B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 2.77kB done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/debian:stable-slim
+#3 DONE 0.7s
+
+#4 [ 1/13] FROM docker.io/library/debian:stable-slim@sha256:b09f68bffcf9c14f3105f262e92321d05abaf48460d1f43f884325bcd4395b95
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 74B done
+#5 DONE 0.0s
+
+#6 [ 7/13] RUN DEBIAN_FRONTEND=noninteractive apt-get update  -y     && DEBIAN_FRONTEND=noninteractive apt-get install -y          apt-utils         build-essential         git         less         libnet-dev         libpcap-dev         libreadline-dev         libusb-1.0-0-dev         libusb-dev         libx11-dev         libxext-dev         nano         procps         re2c         screen         vim         wget         2>&1 | tee -a "/opt/logs/dockerfile.log"
+#6 CACHED
+
+#7 [10/13] RUN echo "# -------------------------------- start EPICS base" 2>&1 | tee -a "/opt/logs/dockerfile.log"
+#7 CACHED
+
+#8 [11/13] COPY ./resources/epics_base.sh /opt/resources/
+#8 CACHED
+
+#9 [ 9/13] RUN echo "# -------------------------------- end OS install" 2>&1 | tee -a "/opt/logs/dockerfile.log"
+#9 CACHED
+
+#10 [12/13] RUN "/opt/resources/epics_base.sh" 2>&1 | tee -a "/opt/logs/dockerfile.log"
+#10 CACHED
+
+#11 [ 6/13] RUN echo "# update OS" 2>&1 | tee -a "/opt/logs/dockerfile.log"
+#11 CACHED
+
+#12 [ 8/13] RUN rm -rf /var/lib/apt/lists/*
+#12 CACHED
+
+#13 [ 3/13] RUN     touch ~/.bashrc ~/.bash_aliases     && echo "if [ -f ~/.bash_aliases ]; then" >> ~/.bashrc     && echo "    . ~/.bash_aliases" >> ~/.bashrc     && echo "fi" >> ~/.bashrc     && echo "# file: ~/.bash_aliases" >> ~/.bash_aliases     && echo "export LS_OPTIONS='--color=auto'" >> ~/.bash_aliases     && echo "export EDITOR=nano" >> ~/.bash_aliases     && echo "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${HOME}/bin" >> ~/.bash_aliases     && echo "export PROMPT_DIRTRIM=3" >> ~/.bash_aliases     && echo "alias ls='ls --color=auto'" >> ~/.bash_aliases     && echo "alias ll='ls -lAFgh'" >> ~/.bash_aliases     && mkdir ~/bin "/opt/logs"
+#13 CACHED
+
+#14 [ 4/13] RUN echo "# -------------------------------- update OS" 2>&1 | tee -a "/opt/logs/dockerfile.log"
+#14 CACHED
+
+#15 [ 2/13] WORKDIR /home
+#15 CACHED
+
+#16 [ 5/13] RUN     echo "export APP_ROOT=/opt" >> ~/.bash_aliases     && echo "export RESOURCES=/opt/resources" >> ~/.bash_aliases     && echo "export LOG_DIR=/opt/logs" >> ~/.bash_aliases
+#16 CACHED
+
+#17 [13/13] RUN echo "# -------------------------------- end EPICS base" 2>&1 | tee -a "/opt/logs/dockerfile.log"
+#17 CACHED
+
+#18 exporting to image
+#18 exporting layers done
+#18 writing image sha256:28da16857fe7067015662565a8cac59fc10672b2fbe3aeafdf7673f7662e5328 done
+#18 naming to docker.io/prjemian/epics-base:3.0.0 done
+#18 DONE 0.0s
+# finished:  2023-06-23T07:59:21-05:00

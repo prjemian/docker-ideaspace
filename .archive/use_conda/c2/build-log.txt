@@ -1,0 +1,79 @@
+# started:  2023-06-26T19:18:06-05:00
+#1 [internal] load .dockerignore
+#1 transferring context: 2B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 3.58kB done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/debian:latest
+#3 DONE 0.2s
+
+#4 [ 1/19] FROM docker.io/library/debian:latest@sha256:d568e251e460295a8743e9d5ef7de673c5a8f9027db11f4e666e96fb5bed708e
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 35B done
+#5 DONE 0.0s
+
+#6 [ 5/19] RUN echo "# update OS" 2>&1 | tee -a "/usr/local/epics/logs/dockerfile.log"
+#6 CACHED
+
+#7 [17/19] WORKDIR /usr/local/epics/extensions/src
+#7 CACHED
+
+#8 [ 7/19] RUN rm -rf /var/lib/apt/lists/*
+#8 CACHED
+
+#9 [10/19] RUN echo "# -------------------------------- build EPICS base" 2>&1 | tee -a "/usr/local/epics/logs/dockerfile.log"
+#9 CACHED
+
+#10 [18/19] RUN git clone https://github.com/caqtdm/caqtdm
+#10 CACHED
+
+#11 [16/19] RUN mkdir -p /usr/local/epics/extensions/src
+#11 CACHED
+
+#12 [ 8/19] RUN echo "# -------------------------------- end OS install" 2>&1 | tee -a "/usr/local/epics/logs/dockerfile.log"
+#12 CACHED
+
+#13 [ 2/19] RUN     touch ~/.bashrc ~/.bash_aliases     && echo "if [ -f ~/.bash_aliases ]; then" >> ~/.bashrc     && echo "    . ~/.bash_aliases" >> ~/.bashrc     && echo "fi" >> ~/.bashrc     && echo "# file: ~/.bash_aliases" >> ~/.bash_aliases     && echo "export LS_OPTIONS='--color=auto'" >> ~/.bash_aliases     && echo "export EDITOR=nano" >> ~/.bash_aliases     && echo "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:${HOME}/bin" >> ~/.bash_aliases     && echo "export PROMPT_DIRTRIM=3" >> ~/.bash_aliases     && echo "alias ls='ls --color=auto'" >> ~/.bash_aliases     && echo "alias ll='ls -lAFgh'" >> ~/.bash_aliases     && mkdir ~/bin "/usr/local/epics/logs"     mkdir -p "/usr/local/epics"
+#13 CACHED
+
+#14 [ 6/19] RUN DEBIAN_FRONTEND=noninteractive apt-get update  -y     && DEBIAN_FRONTEND=noninteractive apt-get install -y          apt-utils         build-essential         git         less         libnet-dev         libpcap-dev         libreadline-dev         libusb-1.0-0-dev         libusb-dev         libx11-dev         libxext-dev         nano         procps         re2c         screen         vim         wget         2>&1 | tee -a "/usr/local/epics/logs/dockerfile.log"
+#14 CACHED
+
+#15 [ 4/19] RUN     echo "export APP_ROOT=/usr/local/epics" >> ~/.bash_aliases     && echo "export RESOURCES=/usr/local/epics/resources" >> ~/.bash_aliases     && echo "export LOG_DIR=/usr/local/epics/logs" >> ~/.bash_aliases
+#15 CACHED
+
+#16 [13/19] RUN echo "# -------------------------------- end EPICS base build" 2>&1 | tee -a "/usr/local/epics/logs/dockerfile.log"
+#16 CACHED
+
+#17 [14/19] RUN echo "# -------------------------------- build caQtDM" 2>&1 | tee -a "/usr/local/epics/logs/dockerfile.log"
+#17 CACHED
+
+#18 [15/19] RUN DEBIAN_FRONTEND=noninteractive apt-get update  -y     && DEBIAN_FRONTEND=noninteractive apt-get install -y        apt-file       libgl-dev       libgl1       libgl1-mesa-dev       libqt5svg5-dev       libqwt-qt5-dev       libzmq3-dev       python3-dev       python3-pip       qt5-qmake       qtbase5-dev       qtbase5-dev-tools       qttools5-dev       qtchooser     2>&1 | tee -a "/usr/local/epics/logs/dockerfile.log"
+#18 CACHED
+
+#19 [ 3/19] RUN echo "# -------------------------------- update OS" 2>&1 | tee -a "/usr/local/epics/logs/dockerfile.log"
+#19 CACHED
+
+#20 [ 9/19] WORKDIR /home
+#20 CACHED
+
+#21 [12/19] RUN bash "/usr/local/epics/resources/epics_base.sh"  2>&1 | tee -a "/usr/local/epics/logs/dockerfile.log"
+#21 CACHED
+
+#22 [11/19] COPY ./epics_base.sh /usr/local/epics/resources/
+#22 CACHED
+
+#23 [19/19] WORKDIR /home
+#23 CACHED
+
+#24 exporting to image
+#24 exporting layers done
+#24 writing image sha256:d1d3e49510ac8b0f148f2667bab481fad2fb549ccedf474bbd44c22adf52d09e done
+#24 naming to docker.io/prjemian/epics-caqtdm:latest done
+#24 DONE 0.0s
+# finished:  2023-06-26T19:18:06-05:00

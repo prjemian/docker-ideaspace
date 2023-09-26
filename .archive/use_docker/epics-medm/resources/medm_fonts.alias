@@ -1,0 +1,16 @@
+widgetDM_4 5x7
+widgetDM_6 widgetDM_4
+widgetDM_8 5x8
+widgetDM_10 widgetDM_8
+widgetDM_12 6x10
+widgetDM_14 6x12
+widgetDM_16 7x14
+widgetDM_18 widgetDM_16
+widgetDM_20 8x16
+widgetDM_22 widgetDM_20
+widgetDM_24 10x20
+widgetDM_30 widgetDM_24
+widgetDM_36 12x24
+widgetDM_40 widgetDM_36
+widgetDM_48 widgetDM_40
+widgetDM_60 widgetDM_48

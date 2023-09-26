@@ -1,0 +1,253 @@
+# started:  2023-06-21T17:09:00-05:00
+#1 [internal] load .dockerignore
+#1 transferring context: 2B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 1.67kB done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/mambaorg/micromamba:latest
+#3 DONE 0.4s
+
+#4 [1/4] FROM docker.io/mambaorg/micromamba@sha256:7ff048d9136e782e10492d9d83aba8244e4aae7a655fd9e2abfbda4c2dcc1f86
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 1.28kB done
+#5 DONE 0.0s
+
+#6 [2/4] WORKDIR /home
+#6 CACHED
+
+#7 [3/4] COPY ./env.yml ./epics_medm.sh /home
+#7 DONE 0.0s
+
+#8 [4/4] RUN     micromamba install     -y     --root-prefix "/opt/conda"     --prefix "/opt/conda"     --file env.yml
+#8 0.276 
+#8 0.276                                            __
+#8 0.276           __  ______ ___  ____ _____ ___  / /_  ____ _
+#8 0.276          / / / / __ `__ \/ __ `/ __ `__ \/ __ \/ __ `/
+#8 0.276         / /_/ / / / / / / /_/ / / / / / / /_/ / /_/ /
+#8 0.276        / .___/_/ /_/ /_/\__,_/_/ /_/ /_/_.___/\__,_/
+#8 0.276       /_/
+#8 0.276 
+#8 21.60 
+#8 21.60 Transaction
+#8 21.60 
+#8 21.60   Prefix: /opt/conda
+#8 21.60 
+#8 21.60   Updating specs:
+#8 21.60 
+#8 21.60    - cxx-compiler
+#8 21.60    - epics-base
+#8 21.60    - gcc
+#8 21.60    - git
+#8 21.60    - make
+#8 21.60    - openmotif
+#8 21.60    - openmotif-dev
+#8 21.60    - wget
+#8 21.60    - xorg-libxdmcp
+#8 21.60 
+#8 21.60 
+#8 21.61   Package                                      Version  Build             Channel          Size
+#8 21.61 ─────────────────────────────────────────────────────────────────────────────────────────────────
+#8 21.61   Install:
+#8 21.61 ─────────────────────────────────────────────────────────────────────────────────────────────────
+#8 21.61 
+#8 21.61   + _libgcc_mutex                                  0.1  conda_forge       conda-forge       3kB
+#8 21.61   + _openmp_mutex                                  4.5  2_gnu             conda-forge      24kB
+#8 21.61   + _sysroot_linux-64_curr_repodata_hack             3  haa98f57_10       pkgs/main        13kB
+#8 21.61   + binutils                                      2.40  hdd6e379_0        conda-forge      30kB
+#8 21.61   + binutils_impl_linux-64                        2.40  hf600244_0        conda-forge       5MB
+#8 21.61   + binutils_linux-64                             2.40  hbdbef99_0        conda-forge      28kB
+#8 21.61   + bzip2                                        1.0.8  h7b6447c_0        pkgs/main        80kB
+#8 21.61   + c-ares                                      1.19.0  h5eee18b_0        pkgs/main       121kB
+#8 21.61   + c-compiler                                   1.5.2  h0b41bf4_0        conda-forge       6kB
+#8 21.61   + ca-certificates                         2023.05.30  h06a4308_0        pkgs/main       123kB
+#8 21.61   + curl                                        7.88.1  h5eee18b_1        pkgs/main        91kB
+#8 21.61   + cxx-compiler                                 1.5.2  hf52228f_0        conda-forge       6kB
+#8 21.61   + epics-base                                 7.0.7.0  h2dfad98_0        conda-forge      30MB
+#8 21.61   + expat                                        2.4.9  h6a678d5_0        pkgs/main       160kB
+#8 21.61   + font-ttf-dejavu-sans-mono                     2.37  hd3eb1b0_0        pkgs/main       343kB
+#8 21.61   + font-ttf-inconsolata                         2.001  hcb22688_0        pkgs/main        85kB
+#8 21.61   + font-ttf-source-code-pro                     2.030  hd3eb1b0_0        pkgs/main       670kB
+#8 21.61   + font-ttf-ubuntu                               0.83  h8b1ccd4_0        pkgs/main         2MB
+#8 21.61   + fontconfig                                  2.14.1  hef1e5e3_0        pkgs/main       291kB
+#8 21.61   + fonts-anaconda                                   1  h8fa9717_0        pkgs/main         3kB
+#8 21.61   + fonts-conda-ecosystem                            1  hd3eb1b0_0        pkgs/main         5kB
+#8 21.61   + freetype                                    2.12.1  h4a9f257_0        pkgs/main       641kB
+#8 21.61   + gcc                                         11.4.0  h7baecda_0        conda-forge      27kB
+#8 21.61   + gcc_impl_linux-64                           11.4.0  h7aa1c59_0        conda-forge      45MB
+#8 21.61   + gcc_linux-64                                11.4.0  hfd045f2_0        conda-forge      30kB
+#8 21.61   + gdbm                                          1.18  hd4cb3f1_4        pkgs/main       199kB
+#8 21.61   + gettext                                     0.21.0  hf68c758_0        pkgs/main         3MB
+#8 21.61   + git                                         2.40.1  pl5340h36fbf9e_1  pkgs/main        10MB
+#8 21.61   + gxx                                         11.4.0  h7baecda_0        conda-forge      26kB
+#8 21.61   + gxx_impl_linux-64                           11.4.0  h7aa1c59_0        conda-forge      11MB
+#8 21.61   + gxx_linux-64                                11.4.0  hfc1ae95_0        conda-forge      28kB
+#8 21.61   + icu                                           58.2  he6710b0_3        pkgs/main        11MB
+#8 21.61   + jpeg                                            9e  h5eee18b_1        pkgs/main       268kB
+#8 21.61   + kernel-headers_linux-64                     3.10.0  h57e8cba_10       pkgs/main       975kB
+#8 21.61   + krb5                                        1.20.1  h143b758_1        pkgs/main         1MB
+#8 21.61   + ld_impl_linux-64                              2.40  h41732ed_0        conda-forge     705kB
+#8 21.61   + libcurl                                     7.88.1  h251f7ec_1        pkgs/main       394kB
+#8 21.61   + libedit                               3.1.20221030  h5eee18b_0        pkgs/main       186kB
+#8 21.61   + libev                                         4.33  h7f8727e_1        pkgs/main       114kB
+#8 21.61   + libgcc-devel_linux-64                       11.4.0  h922705a_0        conda-forge       2MB
+#8 21.61   + libgcc-ng                                   13.1.0  he5830b7_0        conda-forge     776kB
+#8 21.61   + libgomp                                     13.1.0  he5830b7_0        conda-forge     419kB
+#8 21.61   + libiconv                                      1.16  h7f8727e_2        pkgs/main       754kB
+#8 21.61   + libidn2                                      2.3.4  h5eee18b_0        pkgs/main       149kB
+#8 21.61   + libnghttp2                                  1.52.0  h2d74bed_1        pkgs/main       688kB
+#8 21.61   + libpng                                      1.6.39  h5eee18b_0        pkgs/main       311kB
+#8 21.61   + libsanitizer                                11.4.0  h4dcbe23_0        conda-forge       4MB
+#8 21.61   + libssh2                                     1.10.0  hdbd6064_2        pkgs/main       299kB
+#8 21.61   + libstdcxx-devel_linux-64                    11.4.0  h922705a_0        conda-forge       8MB
+#8 21.61   + libstdcxx-ng                                13.1.0  hfd8a6a1_0        conda-forge       4MB
+#8 21.61   + libunistring                                0.9.10  h27cfd23_0        pkgs/main       548kB
+#8 21.61   + libuuid                                     2.38.1  h0b41bf4_0        conda-forge      34kB
+#8 21.61   + libxcb                                        1.15  h7f8727e_0        pkgs/main       518kB
+#8 21.61   + libxml2                                     2.9.14  h74e7548_0        pkgs/main       735kB
+#8 21.61   + make                                         4.2.1  h1bed415_1        pkgs/main       425kB
+#8 21.61   + ncurses                                        6.4  h6a678d5_0        pkgs/main       936kB
+#8 21.61   + openmotif                                    2.3.8  h5d10074_3        conda-forge       7MB
+#8 21.61   + openmotif-dev                                2.3.8  ha770c72_3        conda-forge      11MB
+#8 21.61   + openssl                                      3.0.8  h7f8727e_0        pkgs/main         5MB
+#8 21.61   + pcre2                                        10.42  hebb0a14_0        pkgs/main         2MB
+#8 21.61   + perl                                        5.34.0  h5eee18b_2        pkgs/main        13MB
+#8 21.61   + readline                                       8.2  h5eee18b_0        pkgs/main       365kB
+#8 21.61   + sysroot_linux-64                              2.17  h57e8cba_10       pkgs/main        34MB
+#8 21.61   + tk                                          8.6.12  h1ccaba5_0        pkgs/main         3MB
+#8 21.61   + wget                                        1.21.4  h251f7ec_1        pkgs/main       824kB
+#8 21.61   + xorg-kbproto                                 1.0.7  h7f98852_1002     conda-forge      27kB
+#8 21.61   + xorg-libice                                 1.0.10  h7f98852_0        conda-forge      59kB
+#8 21.61   + xorg-libsm                                   1.2.3  hd9c2040_1000     conda-forge      26kB
+#8 21.61   + xorg-libx11                                 1.6.12  h36c2ea0_0        conda-forge     941kB
+#8 21.61   + xorg-libxau                                 1.0.11  hd590300_0        conda-forge      14kB
+#8 21.61   + xorg-libxdmcp                                1.1.3  h7f98852_0        conda-forge      19kB
+#8 21.61   + xorg-libxext                                 1.3.4  h516909a_0        conda-forge      53kB
+#8 21.61   + xorg-libxft                                  2.3.4  hc534e41_1        conda-forge      55kB
+#8 21.61   + xorg-libxmu                                  1.1.3  h516909a_0        conda-forge      92kB
+#8 21.61   + xorg-libxp                                   1.0.3  0                 conda-forge      29kB
+#8 21.61   + xorg-libxrender                             0.9.10  h516909a_1002     conda-forge      32kB
+#8 21.61   + xorg-libxt                                   1.1.5  h516909a_1003     conda-forge     376kB
+#8 21.61   + xorg-renderproto                            0.11.1  h7f98852_1002     conda-forge      10kB
+#8 21.61   + xorg-xextproto                               7.3.0  h0b41bf4_1003     conda-forge      30kB
+#8 21.61   + xorg-xproto                                 7.0.31  h27cfd23_1007     pkgs/main        74kB
+#8 21.61   + xz                                           5.4.2  h5eee18b_0        pkgs/main       657kB
+#8 21.61   + zlib                                        1.2.13  h5eee18b_0        pkgs/main       106kB
+#8 21.61 
+#8 21.61   Summary:
+#8 21.61 
+#8 21.61   Install: 82 packages
+#8 21.61 
+#8 21.61   Total download: 228MB
+#8 21.61 
+#8 21.61 ─────────────────────────────────────────────────────────────────────────────────────────────────
+#8 21.61 
+#8 21.61 
+#8 21.61 
+#8 21.61 Transaction starting
+#8 27.85 Linking libgcc-devel_linux-64-11.4.0-h922705a_0
+#8 27.86 Linking libstdcxx-devel_linux-64-11.4.0-h922705a_0
+#8 27.89 Linking ld_impl_linux-64-2.40-h41732ed_0
+#8 27.90 Linking _libgcc_mutex-0.1-conda_forge
+#8 27.90 Linking libstdcxx-ng-13.1.0-hfd8a6a1_0
+#8 27.90 Linking libgomp-13.1.0-he5830b7_0
+#8 27.90 Linking _openmp_mutex-4.5-2_gnu
+#8 27.90 Linking libgcc-ng-13.1.0-he5830b7_0
+#8 27.90 Linking libuuid-2.38.1-h0b41bf4_0
+#8 27.90 Linking xorg-libice-1.0.10-h7f98852_0
+#8 27.90 Linking xorg-renderproto-0.11.1-h7f98852_1002
+#8 27.90 Linking xorg-kbproto-1.0.7-h7f98852_1002
+#8 27.90 Linking xorg-xextproto-7.3.0-h0b41bf4_1003
+#8 27.90 Linking xorg-libxau-1.0.11-hd590300_0
+#8 27.90 Linking xorg-libxdmcp-1.1.3-h7f98852_0
+#8 27.90 Linking libsanitizer-11.4.0-h4dcbe23_0
+#8 27.91 Linking xorg-libsm-1.2.3-hd9c2040_1000
+#8 27.91 Linking _sysroot_linux-64_curr_repodata_hack-3-haa98f57_10
+#8 27.91 Linking font-ttf-dejavu-sans-mono-2.37-hd3eb1b0_0
+#8 27.91 Linking font-ttf-inconsolata-2.001-hcb22688_0
+#8 27.91 Linking font-ttf-source-code-pro-2.030-hd3eb1b0_0
+#8 27.91 Linking font-ttf-ubuntu-0.83-h8b1ccd4_0
+#8 27.91 Linking kernel-headers_linux-64-3.10.0-h57e8cba_10
+#8 27.94 Linking fonts-anaconda-1-h8fa9717_0
+#8 27.94 Linking sysroot_linux-64-2.17-h57e8cba_10
+#8 28.09 Linking fonts-conda-ecosystem-1-hd3eb1b0_0
+#8 28.09 Linking ca-certificates-2023.05.30-h06a4308_0
+#8 28.09 Linking libev-4.33-h7f8727e_1
+#8 28.09 Linking c-ares-1.19.0-h5eee18b_0
+#8 28.10 Linking expat-2.4.9-h6a678d5_0
+#8 28.10 Linking libunistring-0.9.10-h27cfd23_0
+#8 28.10 Linking xz-5.4.2-h5eee18b_0
+#8 28.13 Linking icu-58.2-he6710b0_3
+#8 28.14 Linking bzip2-1.0.8-h7b6447c_0
+#8 28.15 Linking ncurses-6.4-h6a678d5_0
+#8 29.30 Linking zlib-1.2.13-h5eee18b_0
+#8 29.30 Linking xorg-xproto-7.0.31-h27cfd23_1007
+#8 29.30 Linking libxcb-1.15-h7f8727e_0
+#8 29.31 Linking libiconv-1.16-h7f8727e_2
+#8 29.32 Linking jpeg-9e-h5eee18b_1
+#8 29.32 Linking make-4.2.1-h1bed415_1
+#8 29.32 Linking openssl-3.0.8-h7f8727e_0
+#8 29.36 Linking libidn2-2.3.4-h5eee18b_0
+#8 29.36 Linking libedit-3.1.20221030-h5eee18b_0
+#8 29.37 Linking readline-8.2-h5eee18b_0
+#8 29.37 Linking tk-8.6.12-h1ccaba5_0
+#8 29.39 Linking libxml2-2.9.14-h74e7548_0
+#8 29.40 Linking libpng-1.6.39-h5eee18b_0
+#8 29.40 Linking pcre2-10.42-hebb0a14_0
+#8 29.41 Linking libssh2-1.10.0-hdbd6064_2
+#8 29.41 Linking libnghttp2-1.52.0-h2d74bed_1
+#8 29.42 Linking wget-1.21.4-h251f7ec_1
+#8 29.42 Linking krb5-1.20.1-h143b758_1
+#8 29.44 Linking gdbm-1.18-hd4cb3f1_4
+#8 29.44 Linking gettext-0.21.0-hf68c758_0
+#8 29.46 Linking freetype-2.12.1-h4a9f257_0
+#8 29.46 Linking libcurl-7.88.1-h251f7ec_1
+#8 29.46 Linking perl-5.34.0-h5eee18b_2
+#8 29.54 Linking fontconfig-2.14.1-hef1e5e3_0
+#8 29.55 Linking curl-7.88.1-h5eee18b_1
+#8 29.55 Linking git-2.40.1-pl5340h36fbf9e_1
+#8 29.67 Linking binutils_impl_linux-64-2.40-hf600244_0
+#8 29.68 Linking xorg-libx11-1.6.12-h36c2ea0_0
+#8 29.70 Linking epics-base-7.0.7.0-h2dfad98_0
+#8 30.02 Linking binutils-2.40-hdd6e379_0
+#8 30.09 Linking binutils_linux-64-2.40-hbdbef99_0
+#8 30.09 Linking gcc_impl_linux-64-11.4.0-h7aa1c59_0
+#8 30.28 Linking xorg-libxt-1.1.5-h516909a_1003
+#8 30.29 Linking xorg-libxrender-0.9.10-h516909a_1002
+#8 30.29 Linking xorg-libxext-1.3.4-h516909a_0
+#8 30.29 Linking gcc_linux-64-11.4.0-hfd045f2_0
+#8 30.29 Linking gxx_impl_linux-64-11.4.0-h7aa1c59_0
+#8 30.29 Linking gcc-11.4.0-h7baecda_0
+#8 30.30 Linking xorg-libxft-2.3.4-hc534e41_1
+#8 30.30 Linking xorg-libxmu-1.1.3-h516909a_0
+#8 30.31 Linking xorg-libxp-1.0.3-0
+#8 30.31 Linking gxx_linux-64-11.4.0-hfc1ae95_0
+#8 30.31 Linking gxx-11.4.0-h7baecda_0
+#8 30.31 Linking c-compiler-1.5.2-h0b41bf4_0
+#8 30.31 Linking openmotif-2.3.8-h5d10074_3
+#8 30.36 Linking cxx-compiler-1.5.2-hf52228f_0
+#8 30.36 Linking openmotif-dev-2.3.8-ha770c72_3
+#8 30.44 
+#8 30.44 Transaction finished
+#8 30.44 
+#8 30.44 To activate this environment, use:
+#8 30.44 
+#8 30.44     micromamba activate base
+#8 30.44 
+#8 30.44 Or to execute a single command in this environment, use:
+#8 30.44 
+#8 30.44     micromamba run -n base mycommand
+#8 30.44 
+#8 DONE 31.0s
+
+#9 exporting to image
+#9 exporting layers
+#9 exporting layers 6.4s done
+#9 writing image sha256:24fd8d30b6b46ad233cade71f4d95dade7e9871e7e32eb3fbe4cc838296a9fc9 done
+#9 naming to docker.io/prjemian/epics-medm:3.0.0 done
+#9 DONE 6.4s
+# finished:  2023-06-21T17:09:38-05:00

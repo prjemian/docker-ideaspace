@@ -1,0 +1,1393 @@
+# started:  2023-06-20T23:58:38-05:00
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.23kB done
+#1 DONE 0.0s
+
+#2 [internal] load .dockerignore
+#2 transferring context: 2B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/prjemian/epics-base:3.0.0
+#3 DONE 0.0s
+
+#4 [internal] load build context
+#4 transferring context: 120B done
+#4 DONE 0.0s
+
+#5 [1/9] FROM docker.io/prjemian/epics-base:3.0.0
+#5 DONE 0.1s
+
+#6 [2/9] WORKDIR /home
+#6 DONE 0.0s
+
+#7 [3/9] RUN echo "# -------------------------------- start EPICS MEDM" 2>&1 | tee -a "/opt/logs/dockerfile.log"
+#7 0.278 # -------------------------------- start EPICS MEDM
+#7 DONE 0.3s
+
+#8 [4/9] RUN DEBIAN_FRONTEND=noninteractive apt-get update  -y         2>&1 | tee -a "/opt/logs/dockerfile.log"
+#8 0.471 Get:1 http://deb.debian.org/debian stable InRelease [147 kB]
+#8 0.649 Get:2 http://deb.debian.org/debian stable-updates InRelease [52.1 kB]
+#8 0.777 Get:3 http://deb.debian.org/debian-security stable-security InRelease [48.0 kB]
+#8 0.805 Get:4 http://deb.debian.org/debian stable/main amd64 Packages [8904 kB]
+#8 1.250 Get:5 http://deb.debian.org/debian-security stable-security/main amd64 Packages [28.3 kB]
+#8 1.993 Fetched 9180 kB in 2s (5282 kB/s)
+#8 1.993 Reading package lists...
+#8 DONE 2.3s
+
+#9 [5/9] RUN DEBIAN_FRONTEND=noninteractive apt-get install -y          apt-file         libmotif-dev         libxmu-dev         libxmu-headers         libxpm-dev         libxt-dev     && apt-file update         2>&1 | tee -a "/opt/logs/dockerfile.log"
+#9 0.462 Reading package lists...
+#9 0.808 Building dependency tree...
+#9 0.887 Reading state information...
+#9 0.970 The following additional packages will be installed:
+#9 0.970   libapt-pkg-perl libbrotli-dev libexpat1-dev libfontconfig-dev
+#9 0.970   libfontconfig1-dev libfreetype-dev libice-dev libice6 libmotif-common
+#9 0.970   libmrm4 libpng-dev libpng-tools libregexp-assemble-perl libsm-dev libsm6
+#9 0.970   libuil4 libxft-dev libxft2 libxm4 libxmu6 libxrender-dev libxrender1 libxt6
+#9 0.971   uil uuid-dev x11-common zlib1g-dev
+#9 0.971 Suggested packages:
+#9 0.971   freetype2-doc libice-doc libsm-doc libxt-doc
+#9 1.146 The following NEW packages will be installed:
+#9 1.146   apt-file libapt-pkg-perl libbrotli-dev libexpat1-dev libfontconfig-dev
+#9 1.146   libfontconfig1-dev libfreetype-dev libice-dev libice6 libmotif-common
+#9 1.146   libmotif-dev libmrm4 libpng-dev libpng-tools libregexp-assemble-perl
+#9 1.146   libsm-dev libsm6 libuil4 libxft-dev libxft2 libxm4 libxmu-dev libxmu-headers
+#9 1.146   libxmu6 libxpm-dev libxrender-dev libxrender1 libxt-dev libxt6 uil uuid-dev
+#9 1.146   x11-common zlib1g-dev
+#9 1.207 0 upgraded, 33 newly installed, 0 to remove and 0 not upgraded.
+#9 1.207 Need to get 8704 kB of archives.
+#9 1.207 After this operation, 25.2 MB of additional disk space will be used.
+#9 1.207 Get:1 http://deb.debian.org/debian stable/main amd64 x11-common all 1:7.7+23 [252 kB]
+#9 1.300 Get:2 http://deb.debian.org/debian stable/main amd64 libmotif-common all 2.3.8-3 [40.5 kB]
+#9 1.303 Get:3 http://deb.debian.org/debian stable/main amd64 libxrender1 amd64 1:0.9.10-1.1 [33.2 kB]
+#9 1.304 Get:4 http://deb.debian.org/debian stable/main amd64 libxft2 amd64 2.3.6-1 [61.8 kB]
+#9 1.306 Get:5 http://deb.debian.org/debian stable/main amd64 libice6 amd64 2:1.0.10-1 [58.5 kB]
+#9 1.308 Get:6 http://deb.debian.org/debian stable/main amd64 libsm6 amd64 2:1.2.3-1 [35.1 kB]
+#9 1.308 Get:7 http://deb.debian.org/debian stable/main amd64 libxt6 amd64 1:1.2.1-1.1 [186 kB]
+#9 1.328 Get:8 http://deb.debian.org/debian stable/main amd64 libxmu6 amd64 2:1.1.3-3 [60.1 kB]
+#9 1.330 Get:9 http://deb.debian.org/debian stable/main amd64 libxm4 amd64 2.3.8-3 [1034 kB]
+#9 1.367 Get:10 http://deb.debian.org/debian stable/main amd64 libmrm4 amd64 2.3.8-3 [88.7 kB]
+#9 1.374 Get:11 http://deb.debian.org/debian stable/main amd64 libuil4 amd64 2.3.8-3 [158 kB]
+#9 1.381 Get:12 http://deb.debian.org/debian stable/main amd64 libapt-pkg-perl amd64 0.1.40+b2 [69.2 kB]
+#9 1.382 Get:13 http://deb.debian.org/debian stable/main amd64 libregexp-assemble-perl all 0.38-2 [77.8 kB]
+#9 1.385 Get:14 http://deb.debian.org/debian stable/main amd64 apt-file all 3.3 [39.1 kB]
+#9 1.387 Get:15 http://deb.debian.org/debian stable/main amd64 libbrotli-dev amd64 1.0.9-2+b6 [287 kB]
+#9 1.397 Get:16 http://deb.debian.org/debian stable/main amd64 libexpat1-dev amd64 2.5.0-1 [150 kB]
+#9 1.402 Get:17 http://deb.debian.org/debian stable/main amd64 zlib1g-dev amd64 1:1.2.13.dfsg-1 [916 kB]
+#9 1.433 Get:18 http://deb.debian.org/debian stable/main amd64 libpng-dev amd64 1.6.39-2 [359 kB]
+#9 1.444 Get:19 http://deb.debian.org/debian stable/main amd64 libfreetype-dev amd64 2.12.1+dfsg-5 [567 kB]
+#9 1.461 Get:20 http://deb.debian.org/debian stable/main amd64 uuid-dev amd64 2.38.1-5+b1 [39.9 kB]
+#9 1.462 Get:21 http://deb.debian.org/debian stable/main amd64 libfontconfig-dev amd64 2.14.1-4 [409 kB]
+#9 1.476 Get:22 http://deb.debian.org/debian stable/main amd64 libfontconfig1-dev amd64 2.14.1-4 [268 kB]
+#9 1.484 Get:23 http://deb.debian.org/debian stable/main amd64 libice-dev amd64 2:1.0.10-1 [67.1 kB]
+#9 1.486 Get:24 http://deb.debian.org/debian stable/main amd64 libxrender-dev amd64 1:0.9.10-1.1 [41.1 kB]
+#9 1.487 Get:25 http://deb.debian.org/debian stable/main amd64 libxft-dev amd64 2.3.6-1 [80.3 kB]
+#9 1.489 Get:26 http://deb.debian.org/debian stable/main amd64 libsm-dev amd64 2:1.2.3-1 [38.0 kB]
+#9 1.490 Get:27 http://deb.debian.org/debian stable/main amd64 libxt-dev amd64 1:1.2.1-1.1 [405 kB]
+#9 1.501 Get:28 http://deb.debian.org/debian stable/main amd64 uil amd64 2.3.8-3 [38.8 kB]
+#9 1.602 Get:29 http://deb.debian.org/debian stable/main amd64 libmotif-dev amd64 2.3.8-3 [2478 kB]
+#9 1.666 Get:30 http://deb.debian.org/debian stable/main amd64 libpng-tools amd64 1.6.39-2 [127 kB]
+#9 1.669 Get:31 http://deb.debian.org/debian stable/main amd64 libxmu-headers all 2:1.1.3-3 [68.5 kB]
+#9 1.670 Get:32 http://deb.debian.org/debian stable/main amd64 libxmu-dev amd64 2:1.1.3-3 [65.9 kB]
+#9 1.671 Get:33 http://deb.debian.org/debian stable/main amd64 libxpm-dev amd64 1:3.5.12-1.1 [104 kB]
+#9 2.458 Fetched 8704 kB in 1s (16.6 MB/s)
+#9 2.486 Selecting previously unselected package x11-common.
+#9 2.486 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 21728 files and directories currently installed.)
+#9 2.506 Preparing to unpack .../x11-common_1%3a7.7+23_all.deb ...
+#9 2.508 Unpacking x11-common (1:7.7+23) ...
+#9 2.534 Setting up x11-common (1:7.7+23) ...
+#9 2.620 invoke-rc.d: could not determine current runlevel
+#9 2.621 invoke-rc.d: policy-rc.d denied execution of restart.
+#9 2.636 Selecting previously unselected package libmotif-common.
+#9 2.636 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 21757 files and directories currently installed.)
+#9 2.642 Preparing to unpack .../00-libmotif-common_2.3.8-3_all.deb ...
+#9 2.643 Unpacking libmotif-common (2.3.8-3) ...
+#9 2.658 Selecting previously unselected package libxrender1:amd64.
+#9 2.659 Preparing to unpack .../01-libxrender1_1%3a0.9.10-1.1_amd64.deb ...
+#9 2.662 Unpacking libxrender1:amd64 (1:0.9.10-1.1) ...
+#9 2.677 Selecting previously unselected package libxft2:amd64.
+#9 2.679 Preparing to unpack .../02-libxft2_2.3.6-1_amd64.deb ...
+#9 2.680 Unpacking libxft2:amd64 (2.3.6-1) ...
+#9 2.707 Selecting previously unselected package libice6:amd64.
+#9 2.710 Preparing to unpack .../03-libice6_2%3a1.0.10-1_amd64.deb ...
+#9 2.712 Unpacking libice6:amd64 (2:1.0.10-1) ...
+#9 2.734 Selecting previously unselected package libsm6:amd64.
+#9 2.735 Preparing to unpack .../04-libsm6_2%3a1.2.3-1_amd64.deb ...
+#9 2.736 Unpacking libsm6:amd64 (2:1.2.3-1) ...
+#9 2.753 Selecting previously unselected package libxt6:amd64.
+#9 2.755 Preparing to unpack .../05-libxt6_1%3a1.2.1-1.1_amd64.deb ...
+#9 2.756 Unpacking libxt6:amd64 (1:1.2.1-1.1) ...
+#9 2.794 Selecting previously unselected package libxmu6:amd64.
+#9 2.796 Preparing to unpack .../06-libxmu6_2%3a1.1.3-3_amd64.deb ...
+#9 2.797 Unpacking libxmu6:amd64 (2:1.1.3-3) ...
+#9 2.818 Selecting previously unselected package libxm4:amd64.
+#9 2.819 Preparing to unpack .../07-libxm4_2.3.8-3_amd64.deb ...
+#9 2.821 Unpacking libxm4:amd64 (2.3.8-3) ...
+#9 2.890 Selecting previously unselected package libmrm4:amd64.
+#9 2.891 Preparing to unpack .../08-libmrm4_2.3.8-3_amd64.deb ...
+#9 2.892 Unpacking libmrm4:amd64 (2.3.8-3) ...
+#9 2.909 Selecting previously unselected package libuil4:amd64.
+#9 2.911 Preparing to unpack .../09-libuil4_2.3.8-3_amd64.deb ...
+#9 2.912 Unpacking libuil4:amd64 (2.3.8-3) ...
+#9 2.933 Selecting previously unselected package libapt-pkg-perl.
+#9 2.934 Preparing to unpack .../10-libapt-pkg-perl_0.1.40+b2_amd64.deb ...
+#9 2.936 Unpacking libapt-pkg-perl (0.1.40+b2) ...
+#9 2.954 Selecting previously unselected package libregexp-assemble-perl.
+#9 2.956 Preparing to unpack .../11-libregexp-assemble-perl_0.38-2_all.deb ...
+#9 2.957 Unpacking libregexp-assemble-perl (0.38-2) ...
+#9 2.990 Selecting previously unselected package apt-file.
+#9 2.994 Preparing to unpack .../12-apt-file_3.3_all.deb ...
+#9 2.996 Unpacking apt-file (3.3) ...
+#9 3.030 Selecting previously unselected package libbrotli-dev:amd64.
+#9 3.034 Preparing to unpack .../13-libbrotli-dev_1.0.9-2+b6_amd64.deb ...
+#9 3.036 Unpacking libbrotli-dev:amd64 (1.0.9-2+b6) ...
+#9 3.100 Selecting previously unselected package libexpat1-dev:amd64.
+#9 3.102 Preparing to unpack .../14-libexpat1-dev_2.5.0-1_amd64.deb ...
+#9 3.103 Unpacking libexpat1-dev:amd64 (2.5.0-1) ...
+#9 3.126 Selecting previously unselected package zlib1g-dev:amd64.
+#9 3.128 Preparing to unpack .../15-zlib1g-dev_1%3a1.2.13.dfsg-1_amd64.deb ...
+#9 3.129 Unpacking zlib1g-dev:amd64 (1:1.2.13.dfsg-1) ...
+#9 3.160 Selecting previously unselected package libpng-dev:amd64.
+#9 3.161 Preparing to unpack .../16-libpng-dev_1.6.39-2_amd64.deb ...
+#9 3.162 Unpacking libpng-dev:amd64 (1.6.39-2) ...
+#9 3.195 Selecting previously unselected package libfreetype-dev:amd64.
+#9 3.196 Preparing to unpack .../17-libfreetype-dev_2.12.1+dfsg-5_amd64.deb ...
+#9 3.197 Unpacking libfreetype-dev:amd64 (2.12.1+dfsg-5) ...
+#9 3.242 Selecting previously unselected package uuid-dev:amd64.
+#9 3.243 Preparing to unpack .../18-uuid-dev_2.38.1-5+b1_amd64.deb ...
+#9 3.245 Unpacking uuid-dev:amd64 (2.38.1-5+b1) ...
+#9 3.257 Selecting previously unselected package libfontconfig-dev:amd64.
+#9 3.258 Preparing to unpack .../19-libfontconfig-dev_2.14.1-4_amd64.deb ...
+#9 3.259 Unpacking libfontconfig-dev:amd64 (2.14.1-4) ...
+#9 3.284 Selecting previously unselected package libfontconfig1-dev:amd64.
+#9 3.286 Preparing to unpack .../20-libfontconfig1-dev_2.14.1-4_amd64.deb ...
+#9 3.287 Unpacking libfontconfig1-dev:amd64 (2.14.1-4) ...
+#9 3.305 Selecting previously unselected package libice-dev:amd64.
+#9 3.306 Preparing to unpack .../21-libice-dev_2%3a1.0.10-1_amd64.deb ...
+#9 3.308 Unpacking libice-dev:amd64 (2:1.0.10-1) ...
+#9 3.329 Selecting previously unselected package libxrender-dev:amd64.
+#9 3.331 Preparing to unpack .../22-libxrender-dev_1%3a0.9.10-1.1_amd64.deb ...
+#9 3.333 Unpacking libxrender-dev:amd64 (1:0.9.10-1.1) ...
+#9 3.368 Selecting previously unselected package libxft-dev:amd64.
+#9 3.372 Preparing to unpack .../23-libxft-dev_2.3.6-1_amd64.deb ...
+#9 3.374 Unpacking libxft-dev:amd64 (2.3.6-1) ...
+#9 3.425 Selecting previously unselected package libsm-dev:amd64.
+#9 3.429 Preparing to unpack .../24-libsm-dev_2%3a1.2.3-1_amd64.deb ...
+#9 3.431 Unpacking libsm-dev:amd64 (2:1.2.3-1) ...
+#9 3.450 Selecting previously unselected package libxt-dev:amd64.
+#9 3.451 Preparing to unpack .../25-libxt-dev_1%3a1.2.1-1.1_amd64.deb ...
+#9 3.452 Unpacking libxt-dev:amd64 (1:1.2.1-1.1) ...
+#9 3.496 Selecting previously unselected package uil.
+#9 3.498 Preparing to unpack .../26-uil_2.3.8-3_amd64.deb ...
+#9 3.499 Unpacking uil (2.3.8-3) ...
+#9 3.514 Selecting previously unselected package libmotif-dev:amd64.
+#9 3.516 Preparing to unpack .../27-libmotif-dev_2.3.8-3_amd64.deb ...
+#9 3.517 Unpacking libmotif-dev:amd64 (2.3.8-3) ...
+#9 3.690 Selecting previously unselected package libpng-tools.
+#9 3.691 Preparing to unpack .../28-libpng-tools_1.6.39-2_amd64.deb ...
+#9 3.693 Unpacking libpng-tools (1.6.39-2) ...
+#9 3.710 Selecting previously unselected package libxmu-headers.
+#9 3.712 Preparing to unpack .../29-libxmu-headers_2%3a1.1.3-3_all.deb ...
+#9 3.713 Unpacking libxmu-headers (2:1.1.3-3) ...
+#9 3.728 Selecting previously unselected package libxmu-dev:amd64.
+#9 3.730 Preparing to unpack .../30-libxmu-dev_2%3a1.1.3-3_amd64.deb ...
+#9 3.731 Unpacking libxmu-dev:amd64 (2:1.1.3-3) ...
+#9 3.750 Selecting previously unselected package libxpm-dev:amd64.
+#9 3.752 Preparing to unpack .../31-libxpm-dev_1%3a3.5.12-1.1_amd64.deb ...
+#9 3.754 Unpacking libxpm-dev:amd64 (1:3.5.12-1.1) ...
+#9 3.814 Setting up libapt-pkg-perl (0.1.40+b2) ...
+#9 3.820 Setting up libice6:amd64 (2:1.0.10-1) ...
+#9 3.826 Setting up libxmu-headers (2:1.1.3-3) ...
+#9 3.832 Setting up libxrender1:amd64 (1:0.9.10-1.1) ...
+#9 3.838 Setting up libice-dev:amd64 (2:1.0.10-1) ...
+#9 3.844 Setting up libpng-tools (1.6.39-2) ...
+#9 3.850 Setting up libmotif-common (2.3.8-3) ...
+#9 3.856 Setting up libexpat1-dev:amd64 (2.5.0-1) ...
+#9 3.862 Setting up uuid-dev:amd64 (2.38.1-5+b1) ...
+#9 3.868 Setting up libxpm-dev:amd64 (1:3.5.12-1.1) ...
+#9 3.875 Setting up zlib1g-dev:amd64 (1:1.2.13.dfsg-1) ...
+#9 3.880 Setting up libregexp-assemble-perl (0.38-2) ...
+#9 3.889 Setting up libsm6:amd64 (2:1.2.3-1) ...
+#9 3.892 Setting up libxrender-dev:amd64 (1:0.9.10-1.1) ...
+#9 3.896 Setting up libbrotli-dev:amd64 (1.0.9-2+b6) ...
+#9 3.900 Setting up libxft2:amd64 (2.3.6-1) ...
+#9 3.904 Setting up libsm-dev:amd64 (2:1.2.3-1) ...
+#9 3.907 Setting up libpng-dev:amd64 (1.6.39-2) ...
+#9 3.911 Setting up apt-file (3.3) ...
+#9 4.249 The system-wide cache is empty. You may want to run 'apt-file update'
+#9 4.249 as root to update the cache.
+#9 4.255 Setting up libfreetype-dev:amd64 (2.12.1+dfsg-5) ...
+#9 4.261 Setting up libxt6:amd64 (1:1.2.1-1.1) ...
+#9 4.265 Setting up libxmu6:amd64 (2:1.1.3-3) ...
+#9 4.270 Setting up libfontconfig-dev:amd64 (2.14.1-4) ...
+#9 4.274 Setting up libxt-dev:amd64 (1:1.2.1-1.1) ...
+#9 4.278 Setting up libxm4:amd64 (2.3.8-3) ...
+#9 4.282 Setting up libxft-dev:amd64 (2.3.6-1) ...
+#9 4.287 Setting up libfontconfig1-dev:amd64 (2.14.1-4) ...
+#9 4.292 Setting up libxmu-dev:amd64 (2:1.1.3-3) ...
+#9 4.296 Setting up libmrm4:amd64 (2.3.8-3) ...
+#9 4.303 Setting up libuil4:amd64 (2.3.8-3) ...
+#9 4.312 Setting up uil (2.3.8-3) ...
+#9 4.321 Setting up libmotif-dev:amd64 (2.3.8-3) ...
+#9 4.327 Processing triggers for libc-bin (2.36-9) ...
+#9 4.451 Hit:1 http://deb.debian.org/debian stable InRelease
+#9 4.468 Hit:2 http://deb.debian.org/debian stable-updates InRelease
+#9 4.487 Hit:3 http://deb.debian.org/debian-security stable-security InRelease
+#9 4.515 Get:4 http://deb.debian.org/debian stable/main amd64 Contents (deb) [11.3 MB]
+#9 5.396 Get:5 http://deb.debian.org/debian stable/main all Contents (deb) [32.8 MB]
+#9 8.568 Fetched 44.1 MB in 4s (10.6 MB/s)
+#9 8.568 Reading package lists...
+#9 DONE 9.0s
+
+#10 [6/9] COPY ./resources/epics_medm.sh /opt/resources/
+#10 DONE 0.0s
+
+#11 [7/9] COPY ./resources/medm_fonts.alias /opt/resources/
+#11 DONE 0.0s
+
+#12 [8/9] RUN "/opt/resources/epics_medm.sh" 2>&1 | tee -a "/opt/logs/dockerfile.log"
+#12 0.406 Cloning into 'extensions'...
+#12 0.902 extensions/:
+#12 0.902 total 32K
+#12 0.902 drwxr-xr-x 8 root 4.0K Jun 21 04:58 .git/
+#12 0.902 -rw-r--r-- 1 root   46 Jun 21 04:58 .gitignore
+#12 0.902 -rw-r--r-- 1 root 3.6K Jun 21 04:58 LICENSE.md
+#12 0.902 -rw-r--r-- 1 root  117 Jun 21 04:58 Makefile
+#12 0.902 -rw-r--r-- 1 root 7.0K Jun 21 04:58 README
+#12 0.902 drwxr-xr-x 3 root 4.0K Jun 21 04:58 configure/
+#12 0.902 drwxr-xr-x 2 root 4.0K Jun 21 04:58 src/
+#12 0.902 
+#12 0.902 extensions/.git:
+#12 0.902 total 48K
+#12 0.902 -rw-r--r-- 1 root   23 Jun 21 04:58 HEAD
+#12 0.902 drwxr-xr-x 2 root 4.0K Jun 21 04:58 branches/
+#12 0.902 -rw-r--r-- 1 root  271 Jun 21 04:58 config
+#12 0.902 -rw-r--r-- 1 root   73 Jun 21 04:58 description
+#12 0.902 drwxr-xr-x 2 root 4.0K Jun 21 04:58 hooks/
+#12 0.902 -rw-r--r-- 1 root 5.8K Jun 21 04:58 index
+#12 0.902 drwxr-xr-x 2 root 4.0K Jun 21 04:58 info/
+#12 0.902 drwxr-xr-x 3 root 4.0K Jun 21 04:58 logs/
+#12 0.902 drwxr-xr-x 4 root 4.0K Jun 21 04:58 objects/
+#12 0.902 -rw-r--r-- 1 root  700 Jun 21 04:58 packed-refs
+#12 0.902 drwxr-xr-x 5 root 4.0K Jun 21 04:58 refs/
+#12 0.902 
+#12 0.902 extensions/.git/branches:
+#12 0.902 total 0
+#12 0.902 
+#12 0.902 extensions/.git/hooks:
+#12 0.902 total 60K
+#12 0.902 -rwxr-xr-x 1 root  478 Jun 21 04:58 applypatch-msg.sample*
+#12 0.902 -rwxr-xr-x 1 root  896 Jun 21 04:58 commit-msg.sample*
+#12 0.902 -rwxr-xr-x 1 root 4.7K Jun 21 04:58 fsmonitor-watchman.sample*
+#12 0.902 -rwxr-xr-x 1 root  189 Jun 21 04:58 post-update.sample*
+#12 0.902 -rwxr-xr-x 1 root  424 Jun 21 04:58 pre-applypatch.sample*
+#12 0.902 -rwxr-xr-x 1 root 1.7K Jun 21 04:58 pre-commit.sample*
+#12 0.902 -rwxr-xr-x 1 root  416 Jun 21 04:58 pre-merge-commit.sample*
+#12 0.902 -rwxr-xr-x 1 root 1.4K Jun 21 04:58 pre-push.sample*
+#12 0.902 -rwxr-xr-x 1 root 4.8K Jun 21 04:58 pre-rebase.sample*
+#12 0.902 -rwxr-xr-x 1 root  544 Jun 21 04:58 pre-receive.sample*
+#12 0.902 -rwxr-xr-x 1 root 1.5K Jun 21 04:58 prepare-commit-msg.sample*
+#12 0.902 -rwxr-xr-x 1 root 2.8K Jun 21 04:58 push-to-checkout.sample*
+#12 0.902 -rwxr-xr-x 1 root 3.6K Jun 21 04:58 update.sample*
+#12 0.902 
+#12 0.902 extensions/.git/info:
+#12 0.902 total 4.0K
+#12 0.902 -rw-r--r-- 1 root 240 Jun 21 04:58 exclude
+#12 0.902 
+#12 0.902 extensions/.git/logs:
+#12 0.902 total 8.0K
+#12 0.902 -rw-r--r-- 1 root  193 Jun 21 04:58 HEAD
+#12 0.902 drwxr-xr-x 4 root 4.0K Jun 21 04:58 refs/
+#12 0.902 
+#12 0.902 extensions/.git/logs/refs:
+#12 0.902 total 8.0K
+#12 0.902 drwxr-xr-x 2 root 4.0K Jun 21 04:58 heads/
+#12 0.902 drwxr-xr-x 3 root 4.0K Jun 21 04:58 remotes/
+#12 0.902 
+#12 0.902 extensions/.git/logs/refs/heads:
+#12 0.902 total 4.0K
+#12 0.902 -rw-r--r-- 1 root 193 Jun 21 04:58 master
+#12 0.902 
+#12 0.902 extensions/.git/logs/refs/remotes:
+#12 0.902 total 4.0K
+#12 0.902 drwxr-xr-x 2 root 4.0K Jun 21 04:58 origin/
+#12 0.902 
+#12 0.902 extensions/.git/logs/refs/remotes/origin:
+#12 0.902 total 4.0K
+#12 0.902 -rw-r--r-- 1 root 193 Jun 21 04:58 HEAD
+#12 0.902 
+#12 0.902 extensions/.git/objects:
+#12 0.902 total 8.0K
+#12 0.902 drwxr-xr-x 2 root 4.0K Jun 21 04:58 info/
+#12 0.902 drwxr-xr-x 2 root 4.0K Jun 21 04:58 pack/
+#12 0.902 
+#12 0.902 extensions/.git/objects/info:
+#12 0.902 total 0
+#12 0.902 
+#12 0.902 extensions/.git/objects/pack:
+#12 0.902 total 116K
+#12 0.902 -r--r--r-- 1 root 19K Jun 21 04:58 pack-cf2371673a9a8d553a2181256e0a9ae00bff0b5f.idx
+#12 0.902 -r--r--r-- 1 root 93K Jun 21 04:58 pack-cf2371673a9a8d553a2181256e0a9ae00bff0b5f.pack
+#12 0.902 
+#12 0.902 extensions/.git/refs:
+#12 0.902 total 12K
+#12 0.902 drwxr-xr-x 2 root 4.0K Jun 21 04:58 heads/
+#12 0.902 drwxr-xr-x 3 root 4.0K Jun 21 04:58 remotes/
+#12 0.902 drwxr-xr-x 2 root 4.0K Jun 21 04:58 tags/
+#12 0.902 
+#12 0.902 extensions/.git/refs/heads:
+#12 0.902 total 4.0K
+#12 0.902 -rw-r--r-- 1 root 41 Jun 21 04:58 master
+#12 0.902 
+#12 0.902 extensions/.git/refs/remotes:
+#12 0.902 total 4.0K
+#12 0.902 drwxr-xr-x 2 root 4.0K Jun 21 04:58 origin/
+#12 0.902 
+#12 0.902 extensions/.git/refs/remotes/origin:
+#12 0.902 total 4.0K
+#12 0.902 -rw-r--r-- 1 root 32 Jun 21 04:58 HEAD
+#12 0.902 
+#12 0.902 extensions/.git/refs/tags:
+#12 0.902 total 0
+#12 0.902 
+#12 0.902 extensions/configure:
+#12 0.902 total 52K
+#12 0.902 -rw-r--r-- 1 root 1.3K Jun 21 04:58 CONFIG
+#12 0.902 -rw-r--r-- 1 root  790 Jun 21 04:58 CONFIG_SITE
+#12 0.902 -rw-r--r-- 1 root  110 Jun 21 04:58 Makefile
+#12 0.902 -rw-r--r-- 1 root  925 Jun 21 04:58 RELEASE
+#12 0.902 -rw-r--r-- 1 root  244 Jun 21 04:58 RELEASE.win32-x86
+#12 0.902 -rw-r--r-- 1 root  163 Jun 21 04:58 RULES
+#12 0.902 -rw-r--r-- 1 root   37 Jun 21 04:58 RULES_DIRS
+#12 0.902 -rw-r--r-- 1 root  593 Jun 21 04:58 RULES_IDL
+#12 0.902 -rw-r--r-- 1 root 5.0K Jun 21 04:58 RULES_JAVA
+#12 0.902 -rw-r--r-- 1 root 1.5K Jun 21 04:58 RULES_PYTHON
+#12 0.902 -rw-r--r-- 1 root   37 Jun 21 04:58 RULES_TOP
+#12 0.902 drwxr-xr-x 2 root 4.0K Jun 21 04:58 os/
+#12 0.902 
+#12 0.902 extensions/configure/os:
+#12 0.902 total 156K
+#12 0.902 -rw-r--r-- 1 root   61 Jun 21 04:58 CONFIG.linux-x86.linux-386
+#12 0.902 -rw-r--r-- 1 root  512 Jun 21 04:58 CONFIG_SITE.Common.Common
+#12 0.902 -rw-r--r-- 1 root  289 Jun 21 04:58 CONFIG_SITE.aix-ppc-gnu.aix-ppc-gnu
+#12 0.902 -rw-r--r-- 1 root 2.0K Jun 21 04:58 CONFIG_SITE.aix-ppc.aix-ppc
+#12 0.902 -rw-r--r-- 1 root 1.2K Jun 21 04:58 CONFIG_SITE.cygwin-x86.cygwin-x86
+#12 0.902 -rw-r--r-- 1 root 1.5K Jun 21 04:58 CONFIG_SITE.darwin-ppc.darwin-ppc
+#12 0.902 -rw-r--r-- 1 root  295 Jun 21 04:58 CONFIG_SITE.darwin-ppcx86.darwin-ppcx86
+#12 0.902 -rw-r--r-- 1 root 1.6K Jun 21 04:58 CONFIG_SITE.darwin-x86.darwin-x86
+#12 0.902 -rw-r--r-- 1 root  331 Jun 21 04:58 CONFIG_SITE.freebsd-x86.freebsd-x86
+#12 0.902 -rw-r--r-- 1 root  332 Jun 21 04:58 CONFIG_SITE.freebsd-x86_64.freebsd-x86_64
+#12 0.902 -rw-r--r-- 1 root  297 Jun 21 04:58 CONFIG_SITE.hpux-parisc-gnu.hpux-parisc-gnu
+#12 0.902 -rw-r--r-- 1 root  790 Jun 21 04:58 CONFIG_SITE.hpux-parisc.hpux-parisc
+#12 0.902 -rw-r--r-- 1 root  231 Jun 21 04:58 CONFIG_SITE.interix-x86.interix-x86
+#12 0.902 -rw-r--r-- 1 root  176 Jun 21 04:58 CONFIG_SITE.linux-arm.linux-arm
+#12 0.902 -rw-r--r-- 1 root  293 Jun 21 04:58 CONFIG_SITE.linux-ppc.linux-ppc
+#12 0.902 -rw-r--r-- 1 root  298 Jun 21 04:58 CONFIG_SITE.linux-ppc64-xl.linux-ppc64-xl
+#12 0.902 -rw-r--r-- 1 root  298 Jun 21 04:58 CONFIG_SITE.linux-ppc64.linux-ppc64
+#12 0.902 -rw-r--r-- 1 root  293 Jun 21 04:58 CONFIG_SITE.linux-x86-debug.linux-x86-debug
+#12 0.902 -rw-r--r-- 1 root  294 Jun 21 04:58 CONFIG_SITE.linux-x86.linux-athlon
+#12 0.902 -rw-r--r-- 1 root 1.8K Jun 21 04:58 CONFIG_SITE.linux-x86.linux-x86
+#12 0.902 -rw-r--r-- 1 root  293 Jun 21 04:58 CONFIG_SITE.linux-x86_64-debug.linux-x86_64-debug
+#12 0.902 -rw-r--r-- 1 root 1.3K Jun 21 04:58 CONFIG_SITE.linux-x86_64.linux-x86_64
+#12 0.902 -rw-r--r-- 1 root  754 Jun 21 04:58 CONFIG_SITE.osf-alpha.osf-alpha
+#12 0.902 -rw-r--r-- 1 root  302 Jun 21 04:58 CONFIG_SITE.solaris-sparc-debug.solaris-sparc-debug
+#12 0.902 -rw-r--r-- 1 root  301 Jun 21 04:58 CONFIG_SITE.solaris-sparc-gnu.solaris-sparc-gnu
+#12 0.902 -rw-r--r-- 1 root 2.4K Jun 21 04:58 CONFIG_SITE.solaris-sparc.solaris-sparc
+#12 0.902 -rw-r--r-- 1 root  323 Jun 21 04:58 CONFIG_SITE.solaris-sparc.solaris-sparc64
+#12 0.902 -rw-r--r-- 1 root  302 Jun 21 04:58 CONFIG_SITE.solaris-sparc64-gnu.solaris-sparc64-gnu
+#12 0.902 -rw-r--r-- 1 root  732 Jun 21 04:58 CONFIG_SITE.solaris-sparc64.solaris-sparc64
+#12 0.902 -rw-r--r-- 1 root  297 Jun 21 04:58 CONFIG_SITE.solaris-x86-gnu.solaris-x86-gnu
+#12 0.902 -rw-r--r-- 1 root  565 Jun 21 04:58 CONFIG_SITE.solaris-x86.solaris-x86
+#12 0.902 -rw-r--r-- 1 root  297 Jun 21 04:58 CONFIG_SITE.solaris-x86.solaris-x86_64
+#12 0.902 -rw-r--r-- 1 root  320 Jun 21 04:58 CONFIG_SITE.solaris-x86_64.solaris-x86_64
+#12 0.902 -rw-r--r-- 1 root  296 Jun 21 04:58 CONFIG_SITE.win32-x86-cygwin.win32-x86-cygwin
+#12 0.902 -rw-r--r-- 1 root  294 Jun 21 04:58 CONFIG_SITE.win32-x86-debug.win32-x86-debug
+#12 0.902 -rw-r--r-- 1 root  296 Jun 21 04:58 CONFIG_SITE.win32-x86-mingw.win32-x86-mingw
+#12 0.902 -rw-r--r-- 1 root 6.0K Jun 21 04:58 CONFIG_SITE.win32-x86.win32-x86
+#12 0.902 -rw-r--r-- 1 root  349 Jun 21 04:58 CONFIG_SITE.windows-x64.windows-x64
+#12 0.902 
+#12 0.902 extensions/src:
+#12 0.902 total 8.0K
+#12 0.902 -rw-r--r-- 1 root 5.2K Jun 21 04:58 Makefile
+#12 1.223 make -C ./medm install
+#12 1.223 make[1]: Entering directory '/opt/extensions/src/medm-MEDM3_1_11'
+#12 1.246 make -C ./printUtils install
+#12 1.247 make[2]: Entering directory '/opt/extensions/src/medm-MEDM3_1_11/printUtils'
+#12 1.272 perl -CSD /opt/base/bin/linux-x86_64/makeMakefile.pl O.linux-x86_64 ../../../..
+#12 1.273 mkdir -p O.Common
+#12 1.273 make -C O.linux-x86_64 -f ../Makefile TOP=../../../.. \
+#12 1.273     T_A=linux-x86_64 install
+#12 1.274 make[3]: Entering directory '/opt/extensions/src/medm-MEDM3_1_11/printUtils/O.linux-x86_64'
+#12 1.300 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration      -mtune=generic     -m64  -fPIC -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I/usr/include    -MM -MF xwd2ps.d  ../xwd2ps.c
+#12 1.315 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration      -mtune=generic     -m64  -fPIC -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I/usr/include    -MM -MF xwd.d  ../xwd.c
+#12 1.328 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration      -mtune=generic     -m64  -fPIC -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I/usr/include    -MM -MF utilPrint.d  ../utilPrint.c
+#12 1.339 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration      -mtune=generic     -m64  -fPIC -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I/usr/include    -MM -MF ps_utils.d  ../ps_utils.c
+#12 1.348 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration      -mtune=generic     -m64  -fPIC -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I/usr/include    -MM -MF pUtils.d  ../pUtils.c
+#12 1.357 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration      -mtune=generic     -m64  -fPIC -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I/usr/include    -MM -MF getopt.d  ../getopt.c
+#12 1.419 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration      -mtune=generic     -m64  -fPIC -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I/usr/include    -c ../getopt.c
+#12 1.444 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration      -mtune=generic     -m64  -fPIC -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I/usr/include    -c ../pUtils.c
+#12 1.493 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration      -mtune=generic     -m64  -fPIC -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I/usr/include    -c ../ps_utils.c
+#12 1.551 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration      -mtune=generic     -m64  -fPIC -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I/usr/include    -c ../utilPrint.c
+#12 1.584 ../utilPrint.c: In function 'utilPrint':
+#12 1.584 ../utilPrint.c:159:36: warning: '%s' directive writing up to 255 bytes into a region of size 254 [-Wformat-overflow=]
+#12 1.584   159 |             sprintf(titleString,"-s%s", printTitleString);
+#12 1.584       |                                    ^~   ~~~~~~~~~~~~~~~~
+#12 1.584 ../utilPrint.c:159:13: note: 'sprintf' output between 3 and 258 bytes into a destination of size 256
+#12 1.584   159 |             sprintf(titleString,"-s%s", printTitleString);
+#12 1.584       |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#12 1.584 ../utilPrint.c:197:38: warning: 'sprintf' may write a terminating nul past the end of the destination [-Wformat-overflow=]
+#12 1.584   197 |         sprintf(commandBuffer, "%s %s", printCommand, psFileName);
+#12 1.584       |                                      ^
+#12 1.584 ../utilPrint.c:197:9: note: 'sprintf' output 2 or more bytes (assuming 257) into a destination of size 256
+#12 1.584   197 |         sprintf(commandBuffer, "%s %s", printCommand, psFileName);
+#12 1.584       |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#12 1.603 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration      -mtune=generic     -m64  -fPIC -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I/usr/include    -c ../xwd.c
+#12 1.897 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration      -mtune=generic     -m64  -fPIC -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I/usr/include    -c ../xwd2ps.c
+#12 1.919 ../xwd2ps.c: In function 'xwd2ps':
+#12 1.919 ../xwd2ps.c:208:9: warning: variable 'dump_type' set but not used [-Wunused-but-set-variable]
+#12 1.919   208 |     int dump_type = UNKNOWN;
+#12 1.919       |         ^~~~~~~~~
+#12 1.920 ../xwd2ps.c: In function 'get_raster_header':
+#12 1.920 ../xwd2ps.c:1176:12: warning: variable 'zflg' set but not used [-Wunused-but-set-variable]
+#12 1.920  1176 |     int i, zflg, idifsize;
+#12 1.920       |            ^~~~
+#12 2.190 /usr/bin/ar -rc    libPrintUtils.a     getopt.o pUtils.o ps_utils.o utilPrint.o xwd.o xwd2ps.o
+#12 2.192 /usr/bin/ranlib libPrintUtils.a
+#12 2.194 Installing library ../../../../lib/linux-x86_64/libPrintUtils.a
+#12 2.207 make[3]: Leaving directory '/opt/extensions/src/medm-MEDM3_1_11/printUtils/O.linux-x86_64'
+#12 2.207 make[2]: Leaving directory '/opt/extensions/src/medm-MEDM3_1_11/printUtils'
+#12 2.207 make -C ./xc install
+#12 2.208 make[2]: Entering directory '/opt/extensions/src/medm-MEDM3_1_11/xc'
+#12 2.229 perl -CSD /opt/base/bin/linux-x86_64/makeMakefile.pl O.linux-x86_64 ../../../..
+#12 2.230 mkdir -p O.Common
+#12 2.231 make -C O.linux-x86_64 -f ../Makefile TOP=../../../.. \
+#12 2.231     T_A=linux-x86_64 install
+#12 2.231 make[3]: Entering directory '/opt/extensions/src/medm-MEDM3_1_11/xc/O.linux-x86_64'
+#12 2.250 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration      -mtune=generic     -m64  -fPIC -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I/usr/include -I/usr/include    -MM -MF WheelSwitch.d  ../WheelSwitch.c
+#12 2.275 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration      -mtune=generic     -m64  -fPIC -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I/usr/include -I/usr/include    -MM -MF utils.d  ../utils.c
+#12 2.287 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration      -mtune=generic     -m64  -fPIC -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I/usr/include -I/usr/include    -MM -MF bae.d  ../bae.c
+#12 2.303 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration      -mtune=generic     -m64  -fPIC -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I/usr/include -I/usr/include    -MM -MF Value.d  ../Value.c
+#12 2.316 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration      -mtune=generic     -m64  -fPIC -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I/usr/include -I/usr/include    -MM -MF Meter.d  ../Meter.c
+#12 2.332 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration      -mtune=generic     -m64  -fPIC -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I/usr/include -I/usr/include    -MM -MF Marquee.d  ../Marquee.c
+#12 2.352 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration      -mtune=generic     -m64  -fPIC -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I/usr/include -I/usr/include    -MM -MF Matrix.d  ../Matrix.c
+#12 2.374 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration      -mtune=generic     -m64  -fPIC -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I/usr/include -I/usr/include    -MM -MF Indicator.d  ../Indicator.c
+#12 2.386 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration      -mtune=generic     -m64  -fPIC -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I/usr/include -I/usr/include    -MM -MF Control.d  ../Control.c
+#12 2.403 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration      -mtune=generic     -m64  -fPIC -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I/usr/include -I/usr/include    -MM -MF Clip.d  ../Clip.c
+#12 2.420 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration      -mtune=generic     -m64  -fPIC -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I/usr/include -I/usr/include    -MM -MF Caption.d  ../Caption.c
+#12 2.438 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration      -mtune=generic     -m64  -fPIC -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I/usr/include -I/usr/include    -MM -MF Byte.d  ../Byte.c
+#12 2.455 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration      -mtune=generic     -m64  -fPIC -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I/usr/include -I/usr/include    -MM -MF BarGraph.d  ../BarGraph.c
+#12 2.527 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration      -mtune=generic     -m64  -fPIC -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I/usr/include -I/usr/include    -c ../BarGraph.c
+#12 2.548 ../BarGraph.c: In function 'Resize':
+#12 2.548 ../BarGraph.c:525:27: warning: variable 'displayLabel' set but not used [-Wunused-but-set-variable]
+#12 2.548   525 |     Boolean displayValue, displayLabel;
+#12 2.548       |                           ^~~~~~~~~~~~
+#12 2.701 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration      -mtune=generic     -m64  -fPIC -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I/usr/include -I/usr/include    -c ../Byte.c
+#12 2.736 ../Byte.c: In function 'Resize':
+#12 2.736 ../Byte.c:223:9: warning: variable 'font_height' set but not used [-Wunused-but-set-variable]
+#12 2.736   223 |     int font_height;
+#12 2.736       |         ^~~~~~~~~~~
+#12 2.817 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration      -mtune=generic     -m64  -fPIC -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I/usr/include -I/usr/include    -c ../Caption.c
+#12 2.955 ../Caption.c: In function 'GeometryManager':
+#12 2.955 ../Caption.c:867:45: warning: 'request.width' may be used uninitialized [-Wmaybe-uninitialized]
+#12 2.955   867 |             ComputeUserChildSize(cw, request.width, request.height,
+#12 2.955       |                                      ~~~~~~~^~~~~~
+#12 2.956 ../Caption.c:818:26: note: 'request' declared here
+#12 2.956   818 |         XtWidgetGeometry request;
+#12 2.956       |                          ^~~~~~~
+#12 2.956 ../Caption.c:867:60: warning: 'request.height' may be used uninitialized [-Wmaybe-uninitialized]
+#12 2.956   867 |             ComputeUserChildSize(cw, request.width, request.height,
+#12 2.956       |                                                     ~~~~~~~^~~~~~~
+#12 2.956 ../Caption.c:818:26: note: 'request' declared here
+#12 2.956   818 |         XtWidgetGeometry request;
+#12 2.956       |                          ^~~~~~~
+#12 3.012 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration      -mtune=generic     -m64  -fPIC -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I/usr/include -I/usr/include    -c ../Clip.c
+#12 3.057 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration      -mtune=generic     -m64  -fPIC -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I/usr/include -I/usr/include    -c ../Control.c
+#12 3.159 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration      -mtune=generic     -m64  -fPIC -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I/usr/include -I/usr/include    -c ../Indicator.c
+#12 3.179 ../Indicator.c: In function 'Resize':
+#12 3.179 ../Indicator.c:500:27: warning: variable 'displayLabel' set but not used [-Wunused-but-set-variable]
+#12 3.179   500 |     Boolean displayValue, displayLabel;
+#12 3.179       |                           ^~~~~~~~~~~~
+#12 3.312 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration      -mtune=generic     -m64  -fPIC -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I/usr/include -I/usr/include    -c ../Matrix.c
+#12 4.681 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration      -mtune=generic     -m64  -fPIC -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I/usr/include -I/usr/include    -c ../Marquee.c
+#12 4.770 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration      -mtune=generic     -m64  -fPIC -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I/usr/include -I/usr/include    -c ../Meter.c
+#12 4.908 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration      -mtune=generic     -m64  -fPIC -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I/usr/include -I/usr/include    -c ../Value.c
+#12 4.927 ../Value.c: In function 'CvtStringToVType':
+#12 4.927 ../Value.c:481:47: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+#12 4.927   481 |       "%[-012345689ABCDEFabcdef.]", temp)) == (int)NULL) {
+#12 4.927       |                                               ^
+#12 4.928 ../Value.c:493:51: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+#12 4.928   493 |     if (sscanf(temp, "%[ABCDEFabcdef]", temp2) != (int)NULL) {
+#12 4.928       |                                                   ^
+#12 4.986 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration      -mtune=generic     -m64  -fPIC -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I/usr/include -I/usr/include    -c ../bae.c
+#12 5.007 ../bae.c: In function 'main':
+#12 5.007 ../bae.c:50:22: warning: variable 'mw' set but not used [-Wunused-but-set-variable]
+#12 5.007    50 |     Widget toplevel, mw;
+#12 5.007       |                      ^~
+#12 5.019 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration      -mtune=generic     -m64  -fPIC -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I/usr/include -I/usr/include    -c ../utils.c
+#12 5.050 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration      -mtune=generic     -m64  -fPIC -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I/usr/include -I/usr/include    -c ../WheelSwitch.c
+#12 5.368 ../WheelSwitch.c: In function 'compute_format':
+#12 5.368 ../WheelSwitch.c:1414:36: warning: 's' directive writing 1 byte into a region of size between 0 and 254 [-Wformat-overflow=]
+#12 5.368  1414 |     sprintf(kbd_format_buffer,"%s%ds%s",
+#12 5.368       |                                    ^
+#12 5.368 ../WheelSwitch.c:1414:5: note: 'sprintf' output 3 or more bytes (assuming 257) into a destination of size 255
+#12 5.368  1414 |     sprintf(kbd_format_buffer,"%s%ds%s",
+#12 5.368       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#12 5.368  1415 |       kbd_format_buffer,
+#12 5.368       |       ~~~~~~~~~~~~~~~~~~
+#12 5.368  1416 |       wsw->wsw.digit_size,
+#12 5.368       |       ~~~~~~~~~~~~~~~~~~~~
+#12 5.368  1417 |       format_used+i);
+#12 5.368       |       ~~~~~~~~~~~~~~
+#12 5.368 ../WheelSwitch.c:1414:5: warning: 'sprintf' argument 3 overlaps destination object 'kbd_format_buffer' [-Wrestrict]
+#12 5.368 ../WheelSwitch.c:1335:10: note: destination object referenced by 'restrict'-qualified argument 1 was declared here
+#12 5.368  1335 |     char kbd_format_buffer[FORMAT_SIZE];
+#12 5.368       |          ^~~~~~~~~~~~~~~~~
+#12 5.465 /usr/bin/ar -rc    libANLwidgets.a     BarGraph.o Byte.o Caption.o Clip.o Control.o Indicator.o Matrix.o Marquee.o Meter.o Value.o bae.o utils.o WheelSwitch.o
+#12 5.469 /usr/bin/ranlib libANLwidgets.a
+#12 5.473 Installing library ../../../../lib/linux-x86_64/libANLwidgets.a
+#12 5.487 make[3]: Leaving directory '/opt/extensions/src/medm-MEDM3_1_11/xc/O.linux-x86_64'
+#12 5.487 make[2]: Leaving directory '/opt/extensions/src/medm-MEDM3_1_11/xc'
+#12 5.488 make -C ./medm install
+#12 5.488 make[2]: Entering directory '/opt/extensions/src/medm-MEDM3_1_11/medm'
+#12 5.509 perl -CSD /opt/base/bin/linux-x86_64/makeMakefile.pl O.linux-x86_64 ../../../..
+#12 5.510 mkdir -p O.Common
+#12 5.511 make -C O.linux-x86_64 -f ../Makefile TOP=../../../.. \
+#12 5.511     T_A=linux-x86_64 install
+#12 5.512 make[3]: Entering directory '/opt/extensions/src/medm-MEDM3_1_11/medm/O.linux-x86_64'
+#12 5.532 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -MM -MF xgif.d  ../xgif.c
+#12 5.560 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -MM -MF utils.d  ../utils.c
+#12 5.589 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -MM -MF updateTask.d  ../updateTask.c
+#12 5.615 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -MM -MF updateMonitors.d  ../updateMonitors.c
+#12 5.641 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -MM -MF resourcePalette.d  ../resourcePalette.c
+#12 5.668 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -MM -MF productDescriptionShell.d  ../productDescriptionShell.c
+#12 5.684 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -MM -MF objectPalette.d  ../objectPalette.c
+#12 5.710 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -MM -MF medmWidget.d  ../medmWidget.c
+#12 5.736 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -MM -MF medmWheelSwitch.d  ../medmWheelSwitch.c
+#12 5.762 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -MM -MF medmValuator.d  ../medmValuator.c
+#12 5.788 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -MM -MF medmTextUpdate.d  ../medmTextUpdate.c
+#12 5.814 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -MM -MF medmTextEntry.d  ../medmTextEntry.c
+#12 5.840 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -MM -MF medmText.d  ../medmText.c
+#12 5.867 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -MM -MF medmStripChart.d  ../medmStripChart.c
+#12 5.896 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -MM -MF medmShellCommand.d  ../medmShellCommand.c
+#12 5.922 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -MM -MF medmRelatedDisplay.d  ../medmRelatedDisplay.c
+#12 5.948 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -MM -MF medmRectangle.d  ../medmRectangle.c
+#12 5.973 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -MM -MF medmPolyline.d  ../medmPolyline.c
+#12 5.999 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -MM -MF medmPolygon.d  ../medmPolygon.c
+#12 6.025 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -MM -MF medmPixmap.d  ../medmPixmap.c
+#12 6.051 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -MM -MF medmOval.d  ../medmOval.c
+#12 6.076 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -MM -MF medmMonitor.d  ../medmMonitor.c
+#12 6.102 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -MM -MF medmMeter.d  ../medmMeter.c
+#12 6.128 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -MM -MF medmMessageButton.d  ../medmMessageButton.c
+#12 6.153 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -MM -MF medmMenu.d  ../medmMenu.c
+#12 6.183 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -MM -MF medmIndicator.d  ../medmIndicator.c
+#12 6.208 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -MM -MF medmImage.d  ../medmImage.c
+#12 6.235 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -MM -MF medmDisplay.d  ../medmDisplay.c
+#12 6.261 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -MM -MF medmControl.d  ../medmControl.c
+#12 6.287 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -MM -MF medmComposite.d  ../medmComposite.c
+#12 6.312 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -MM -MF medmCommon.d  ../medmCommon.c
+#12 6.340 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -MM -MF medmChoiceButtons.d  ../medmChoiceButtons.c
+#12 6.365 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -MM -MF medmByte.d  ../medmByte.c
+#12 6.391 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -MM -MF medmBar.d  ../medmBar.c
+#12 6.417 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -MM -MF medmArc.d  ../medmArc.c
+#12 6.443 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -MM -MF medm.d  ../medm.c
+#12 6.473 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -MM -MF help.d  ../help.c
+#12 6.499 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -MM -MF eventHandlers.d  ../eventHandlers.c
+#12 6.526 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -MM -MF display.d  ../display.c
+#12 6.552 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -MM -MF dialogs.d  ../dialogs.c
+#12 6.580 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -MM -MF colorPalette.d  ../colorPalette.c
+#12 6.605 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -MM -MF channelPalette.d  ../channelPalette.c
+#12 6.631 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -MM -MF browserHelp.d  ../browserHelp.c
+#12 6.644 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -MM -MF callbacks.d  ../callbacks.c
+#12 6.671 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -MM -MF bubbleHelp.d  ../bubbleHelp.c
+#12 6.698 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -MM -MF actions.d  ../actions.c
+#12 6.726 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -MM -MF medmCA.d  ../medmCA.c
+#12 6.753 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -MM -MF SciPlot.d  ../SciPlot.c
+#12 6.776 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -MM -MF medmSciPlot.d  ../medmSciPlot.c
+#12 6.802 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -MM -MF medmCartesianPlot.d  ../medmCartesianPlot.c
+#12 6.893 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -c ../medmCartesianPlot.c
+#12 6.957 ../medmCartesianPlot.c: In function 'cartesianPlotResetPlot':
+#12 6.957 ../medmCartesianPlot.c:1506:15: warning: variable 'n' set but not used [-Wunused-but-set-variable]
+#12 6.957  1506 |     int i, j, n;
+#12 6.957       |               ^
+#12 6.958 ../medmCartesianPlot.c: In function 'cartesianPlotDraw':
+#12 6.958 ../medmCartesianPlot.c:1977:31: warning: comparison of constant '0' with boolean expression is always false [-Wbool-compare]
+#12 6.958  1977 |             if(!pr->connected < 0) {
+#12 6.958       |                               ^
+#12 6.958 ../medmCartesianPlot.c:1977:31: warning: logical not is only applied to the left hand side of comparison [-Wlogical-not-parentheses]
+#12 6.958 ../medmCartesianPlot.c:1977:16: note: add parentheses around left hand side expression to silence this warning
+#12 6.958  1977 |             if(!pr->connected < 0) {
+#12 6.958       |                ^~~~~~~~~~~~~~
+#12 6.958       |                (             )
+#12 6.962 ../medmCartesianPlot.c: In function 'cpAxisOptionMenuSimpleCallback':
+#12 6.963 ../medmCartesianPlot.c:2352:22: warning: variable 'dlCartesianPlot' set but not used [-Wunused-but-set-variable]
+#12 6.963  2352 |     DlCartesianPlot *dlCartesianPlot = NULL;
+#12 6.963       |                      ^~~~~~~~~~~~~~~
+#12 6.963 ../medmCartesianPlot.c:2346:12: warning: variable 'n' set but not used [-Wunused-but-set-variable]
+#12 6.963  2346 |     int k, n, rcType, iPrec;
+#12 6.963       |            ^
+#12 6.963 ../medmCartesianPlot.c: In function 'cpAxisTextFieldActivateCallback':
+#12 6.964 ../medmCartesianPlot.c:2584:13: warning: variable 'valF' set but not used [-Wunused-but-set-variable]
+#12 6.964  2584 |     XcVType valF, minF, maxF, tickF;
+#12 6.964       |             ^~~~
+#12 6.964 ../medmCartesianPlot.c:2583:12: warning: variable 'n' set but not used [-Wunused-but-set-variable]
+#12 6.964  2583 |     int k, n, iPrec=-1;
+#12 6.964       |            ^
+#12 6.968 ../medmCartesianPlot.c: In function 'cpUpdateMatrixColors':
+#12 6.968 ../medmCartesianPlot.c:3438:8: warning: the comparison will always evaluate as 'true' for the address of 'xdata' will never be NULL [-Waddress]
+#12 6.968  3438 |     if(tempTrace[row].xdata || tempTrace[row].ydata) {
+#12 6.968       |        ^~~~~~~~~
+#12 6.968 In file included from ../siteSpecific.h:225,
+#12 6.968                  from ../medm.h:111,
+#12 6.968                  from ../medmCartesianPlot.c:86:
+#12 6.968 ../displayList.h:561:10: note: 'xdata' declared here
+#12 6.968   561 |     char xdata[MAX_TOKEN_LENGTH];
+#12 6.968       |          ^~~~~
+#12 6.969 ../medmCartesianPlot.c:3438:29: warning: the comparison will always evaluate as 'true' for the address of 'ydata' will never be NULL [-Waddress]
+#12 6.969  3438 |     if(tempTrace[row].xdata || tempTrace[row].ydata) {
+#12 6.969       |                             ^~
+#12 6.969 ../displayList.h:562:10: note: 'ydata' declared here
+#12 6.969   562 |     char ydata[MAX_TOKEN_LENGTH];
+#12 6.969       |          ^~~~~
+#12 6.969 ../medmCartesianPlot.c: In function 'createCartesianPlotDataDialog':
+#12 6.970 ../medmCartesianPlot.c:3462:30: warning: variable 'labels' set but not used [-Wunused-but-set-variable]
+#12 6.970  3462 |     Widget columns[CP_COLS], labels[CP_COLS];
+#12 6.970       |                              ^~~~~~
+#12 6.970 ../medmCartesianPlot.c:3462:12: warning: variable 'columns' set but not used [-Wunused-but-set-variable]
+#12 6.970  3462 |     Widget columns[CP_COLS], labels[CP_COLS];
+#12 6.970       |            ^~~~~~~
+#12 7.643 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -c ../medmSciPlot.c
+#12 7.700 ../medmSciPlot.c: In function 'CpSetData':
+#12 7.700 ../medmSciPlot.c:460:20: warning: variable 'npoints' set but not used [-Wunused-but-set-variable]
+#12 7.700   460 |     int i, listid, npoints, nsets;
+#12 7.700       |                    ^~~~~~~
+#12 7.700 ../medmSciPlot.c: In function 'CpEraseData':
+#12 7.700 ../medmSciPlot.c:488:20: warning: variable 'npoints' set but not used [-Wunused-but-set-variable]
+#12 7.700   488 |     int i, listid, npoints, nsets;
+#12 7.700       |                    ^~~~~~~
+#12 7.755 ../medmSciPlot.c: In function 'CpGetAxisMaxMin':
+#12 7.755 ../medmSciPlot.c:233:16: warning: 'min' may be used uninitialized [-Wmaybe-uninitialized]
+#12 7.755   233 |     minF->fval = min;
+#12 7.755       |     ~~~~~~~~~~~^~~~~
+#12 7.755 ../medmSciPlot.c:216:11: note: 'min' declared here
+#12 7.755   216 |     float min, max;
+#12 7.755       |           ^~~
+#12 7.755 ../medmSciPlot.c:234:16: warning: 'max' may be used uninitialized [-Wmaybe-uninitialized]
+#12 7.755   234 |     maxF->fval = max;
+#12 7.755       |     ~~~~~~~~~~~^~~~~
+#12 7.755 ../medmSciPlot.c:216:16: note: 'max' declared here
+#12 7.755   216 |     float min, max;
+#12 7.755       |                ^~~
+#12 7.835 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -c ../SciPlot.c
+#12 7.886 ../SciPlot.c: In function 'ItemPSDrawAll':
+#12 7.886 ../SciPlot.c:1631:35: warning: variable 'currentfont' set but not used [-Wunused-but-set-variable]
+#12 7.886  1631 |   int previousfont, previousline, currentfont, currentline, previouscolor;
+#12 7.886       |                                   ^~~~~~~~~~~
+#12 7.887 ../SciPlot.c: In function 'SciPlotPSCreateHeader':
+#12 7.887 ../SciPlot.c:1796:40: warning: variable 'yflip' set but not used [-Wunused-but-set-variable]
+#12 7.887  1796 |   float scale, xoff, yoff, xmax, ymax, yflip, aspect, border, titlefontsize;
+#12 7.887       |                                        ^~~~~
+#12 7.896 ../SciPlot.c: In function 'DrawCartesianXMajorAndMinor':
+#12 7.897 ../SciPlot.c:3935:26: warning: variable 'num_y_major' set but not used [-Wunused-but-set-variable]
+#12 7.897  3935 |   int i, j, num_x_major, num_y_major; /* precision, */
+#12 7.897       |                          ^~~~~~~~~~~
+#12 7.898 ../SciPlot.c:3934:42: warning: variable 'height' set but not used [-Wunused-but-set-variable]
+#12 7.898  3934 |        y_major_incr, minorval, majorval, height;
+#12 7.898       |                                          ^~~~~~
+#12 7.898 ../SciPlot.c:3934:8: warning: variable 'y_major_incr' set but not used [-Wunused-but-set-variable]
+#12 7.898  3934 |        y_major_incr, minorval, majorval, height;
+#12 7.898       |        ^~~~~~~~~~~~
+#12 7.899 ../SciPlot.c:3933:27: warning: variable 'x2_pos' set but not used [-Wunused-but-set-variable]
+#12 7.899  3933 |   real x, x1_pos, y1_pos, x2_pos, y2_pos, x1_val, y1_val, x_major_incr,
+#12 7.899       |                           ^~~~~~
+#12 7.899 ../SciPlot.c: In function 'DrawCartesianYMajorAndMinor':
+#12 7.900 ../SciPlot.c:4012:13: warning: variable 'num_x_major' set but not used [-Wunused-but-set-variable]
+#12 7.900  4012 |   int i, j, num_x_major, num_y_major; /* precision, */
+#12 7.900       |             ^~~~~~~~~~~
+#12 7.900 ../SciPlot.c:4011:42: warning: variable 'height' set but not used [-Wunused-but-set-variable]
+#12 7.900  4011 |        y_major_incr, minorval, majorval, height;
+#12 7.900       |                                          ^~~~~~
+#12 7.901 ../SciPlot.c:4010:59: warning: variable 'x_major_incr' set but not used [-Wunused-but-set-variable]
+#12 7.901  4010 |   real y, x1_pos, y1_pos, x2_pos, y2_pos, x1_val, y1_val, x_major_incr,
+#12 7.901       |                                                           ^~~~~~~~~~~~
+#12 7.902 ../SciPlot.c: In function 'DrawCartesianXAxis':
+#12 7.903 ../SciPlot.c:4101:26: warning: variable 'num_y_major' set but not used [-Wunused-but-set-variable]
+#12 7.903  4101 |   int i, j, num_x_major, num_y_major; /* precision, */
+#12 7.903       |                          ^~~~~~~~~~~
+#12 7.903 ../SciPlot.c:4100:52: warning: variable 'height' set but not used [-Wunused-but-set-variable]
+#12 7.903  4100 |        y_major_incr, minorval, majorval, labelval, height;
+#12 7.903       |                                                    ^~~~~~
+#12 7.904 ../SciPlot.c:4100:8: warning: variable 'y_major_incr' set but not used [-Wunused-but-set-variable]
+#12 7.904  4100 |        y_major_incr, minorval, majorval, labelval, height;
+#12 7.904       |        ^~~~~~~~~~~~
+#12 7.905 ../SciPlot.c: In function 'DrawCartesianYAxis':
+#12 7.906 ../SciPlot.c:4208:13: warning: variable 'num_x_major' set but not used [-Wunused-but-set-variable]
+#12 7.906  4208 |   int i, j, num_x_major, num_y_major; /* precision, */
+#12 7.906       |             ^~~~~~~~~~~
+#12 7.906 ../SciPlot.c:4206:59: warning: variable 'x_major_incr' set but not used [-Wunused-but-set-variable]
+#12 7.906  4206 |   real y, x1_pos, y1_pos, x2_pos, y2_pos, x1_val, y1_val, x_major_incr,
+#12 7.906       |                                                           ^~~~~~~~~~~~
+#12 7.916 ../SciPlot.c: In function 'ComputeAxis_i':
+#12 7.917 ../SciPlot.c:5330:33: warning: variable 'majordecimals' set but not used [-Wunused-but-set-variable]
+#12 7.917  5330 |   int nexp, majornum, minornum, majordecimals, i;
+#12 7.917       |                                 ^~~~~~~~~~~~~
+#12 7.917 ../SciPlot.c:5330:23: warning: variable 'minornum' set but not used [-Wunused-but-set-variable]
+#12 7.917  5330 |   int nexp, majornum, minornum, majordecimals, i;
+#12 7.917       |                       ^~~~~~~~
+#12 7.920 ../SciPlot.c: In function 'sciPlotMotionAP':
+#12 7.921 ../SciPlot.c:5425:35: warning: variable 'maxydat' set but not used [-Wunused-but-set-variable]
+#12 7.921  5425 |   real minxdat, minydat, maxxdat, maxydat;  /* data port */
+#12 7.921       |                                   ^~~~~~~
+#12 7.922 ../SciPlot.c:5425:26: warning: variable 'maxxdat' set but not used [-Wunused-but-set-variable]
+#12 7.922  5425 |   real minxdat, minydat, maxxdat, maxydat;  /* data port */
+#12 7.922       |                          ^~~~~~~
+#12 7.923 ../SciPlot.c:5425:17: warning: variable 'minydat' set but not used [-Wunused-but-set-variable]
+#12 7.923  5425 |   real minxdat, minydat, maxxdat, maxydat;  /* data port */
+#12 7.923       |                 ^~~~~~~
+#12 7.923 ../SciPlot.c:5425:8: warning: variable 'minxdat' set but not used [-Wunused-but-set-variable]
+#12 7.923  5425 |   real minxdat, minydat, maxxdat, maxydat;  /* data port */
+#12 7.923       |        ^~~~~~~
+#12 9.450 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -c ../medmCA.c
+#12 9.507 ../medmCA.c: In function 'medmCAFdRegistrationCb':
+#12 9.507 ../medmCA.c:431:29: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+#12 9.507   431 |                 inp[i].fd = (int)NULL;
+#12 9.507       |                             ^
+#12 9.511 ../medmCA.c: In function 'pvInfoWriteInfo':
+#12 9.511 ../medmCA.c:1638:12: warning: the comparison will always evaluate as 'true' for the address of 'value' will never be NULL [-Waddress]
+#12 9.511  1638 |         if(timeVal.value) {
+#12 9.511       |            ^~~~~~~
+#12 9.511 In file included from ../../../../../base/include/cadef.h:39,
+#12 9.511                  from ../medmCA.h:34,
+#12 9.511                  from ../medm.h:104,
+#12 9.511                  from ../medmCA.c:38:
+#12 9.511 ../../../../../base/include/db_access.h:247:25: note: 'value' declared here
+#12 9.511   247 |         dbr_string_t    value;                  /* current value */
+#12 9.511       |                         ^~~~~
+#12 9.644 ../medmCA.c: In function 'pvInfoWriteInfo.part.0':
+#12 9.644 ../medmCA.c:1617:32: warning: 'DESC: ' directive writing 6 bytes into a region of size between 1 and 1024 [-Wformat-overflow=]
+#12 9.644  1617 |             sprintf(string, "%sDESC: %s\n", string, NOT_AVAILABLE);
+#12 9.644       |                                ^~~~~~
+#12 9.645 ../medmCA.c:1617:13: note: 'sprintf' output between 21 and 1044 bytes into a destination of size 1024
+#12 9.645  1617 |             sprintf(string, "%sDESC: %s\n", string, NOT_AVAILABLE);
+#12 9.645       |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#12 9.645 ../medmCA.c:1617:13: warning: 'sprintf' argument 3 overlaps destination object 'string' [-Wrestrict]
+#12 9.645 ../medmCA.c:1563:10: note: destination object referenced by 'restrict'-qualified argument 1 was declared here
+#12 9.645  1563 |     char string[1024];     /* Danger: Fixed length */
+#12 9.645       |          ^~~~~~
+#12 9.645 ../medmCA.c:1615:32: warning: 'DESC: ' directive writing 6 bytes into a region of size between 1 and 1024 [-Wformat-overflow=]
+#12 9.645  1615 |             sprintf(string, "%sDESC: %s\n", string, descVal);
+#12 9.645       |                                ^~~~~~
+#12 9.645 ../medmCA.c:1615:13: note: 'sprintf' output between 8 and 1070 bytes into a destination of size 1024
+#12 9.645  1615 |             sprintf(string, "%sDESC: %s\n", string, descVal);
+#12 9.645       |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#12 9.645 ../medmCA.c:1615:13: warning: 'sprintf' argument 3 overlaps destination object 'string' [-Wrestrict]
+#12 9.646 ../medmCA.c:1563:10: note: destination object referenced by 'restrict'-qualified argument 1 was declared here
+#12 9.646  1563 |     char string[1024];     /* Danger: Fixed length */
+#12 9.646       |          ^~~~~~
+#12 9.646 ../medmCA.c:1624:32: warning: 'RTYP: ' directive writing 6 bytes into a region of size between 1 and 1024 [-Wformat-overflow=]
+#12 9.646  1624 |             sprintf(string, "%sRTYP: %s\n", string, rtypVal);
+#12 9.646       |                                ^~~~~~
+#12 9.646 ../medmCA.c:1624:13: note: 'sprintf' output between 8 and 1070 bytes into a destination of size 1024
+#12 9.646  1624 |             sprintf(string, "%sRTYP: %s\n", string, rtypVal);
+#12 9.646       |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#12 9.646 ../medmCA.c:1624:13: warning: 'sprintf' argument 3 overlaps destination object 'string' [-Wrestrict]
+#12 9.646 ../medmCA.c:1563:10: note: destination object referenced by 'restrict'-qualified argument 1 was declared here
+#12 9.646  1563 |     char string[1024];     /* Danger: Fixed length */
+#12 9.646       |          ^~~~~~
+#12 9.647 ../medmCA.c:1626:32: warning: 'RTYP: ' directive writing 6 bytes into a region of size between 1 and 1024 [-Wformat-overflow=]
+#12 9.647  1626 |             sprintf(string, "%sRTYP: %s\n", string, NOT_AVAILABLE);
+#12 9.647       |                                ^~~~~~
+#12 9.647 ../medmCA.c:1626:13: note: 'sprintf' output between 21 and 1044 bytes into a destination of size 1024
+#12 9.647  1626 |             sprintf(string, "%sRTYP: %s\n", string, NOT_AVAILABLE);
+#12 9.647       |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#12 9.647 ../medmCA.c:1626:13: warning: 'sprintf' argument 3 overlaps destination object 'string' [-Wrestrict]
+#12 9.647 ../medmCA.c:1563:10: note: destination object referenced by 'restrict'-qualified argument 1 was declared here
+#12 9.647  1563 |     char string[1024];     /* Danger: Fixed length */
+#12 9.647       |          ^~~~~~
+#12 9.648 ../medmCA.c:1630:28: warning: 'TYPE: ' directive writing 6 bytes into a region of size between 1 and 1024 [-Wformat-overflow=]
+#12 9.648  1630 |         sprintf(string, "%sTYPE: %s\n", string,
+#12 9.648       |                            ^~~~~~
+#12 9.648 ../medmCA.c:1630:9: note: 'sprintf' output 8 or more bytes (assuming 1031) into a destination of size 1024
+#12 9.648  1630 |         sprintf(string, "%sTYPE: %s\n", string,
+#12 9.648       |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#12 9.648  1631 |           dbf_type_to_text(ca_field_type(chId)));
+#12 9.648       |           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#12 9.648 ../medmCA.c:1630:9: warning: 'sprintf' argument 3 overlaps destination object 'string' [-Wrestrict]
+#12 9.648 ../medmCA.c:1563:10: note: destination object referenced by 'restrict'-qualified argument 1 was declared here
+#12 9.648  1563 |     char string[1024];     /* Danger: Fixed length */
+#12 9.648       |          ^~~~~~
+#12 9.648 ../medmCA.c:1633:28: warning: 'COUNT: ' directive writing 7 bytes into a region of size between 1 and 1024 [-Wformat-overflow=]
+#12 9.648  1633 |         sprintf(string, "%sCOUNT: %lu\n", string,
+#12 9.648       |                            ^~~~~~~
+#12 9.649 ../medmCA.c:1633:9: note: 'sprintf' output between 10 and 1052 bytes into a destination of size 1024
+#12 9.649  1633 |         sprintf(string, "%sCOUNT: %lu\n", string,
+#12 9.649       |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#12 9.649  1634 |           (unsigned long)ca_element_count(chId));
+#12 9.649       |           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#12 9.649 ../medmCA.c:1633:9: warning: 'sprintf' argument 3 overlaps destination object 'string' [-Wrestrict]
+#12 9.649 ../medmCA.c:1563:10: note: destination object referenced by 'restrict'-qualified argument 1 was declared here
+#12 9.649  1563 |     char string[1024];     /* Danger: Fixed length */
+#12 9.649       |          ^~~~~~
+#12 9.649 ../medmCA.c:1635:28: warning: 'ACCESS: ' directive writing 8 bytes into a region of size between 1 and 1024 [-Wformat-overflow=]
+#12 9.649  1635 |         sprintf(string, "%sACCESS: %s%s\n", string,
+#12 9.649       |                            ^~~~~~~~
+#12 9.649 ../medmCA.c:1635:9: note: 'sprintf' output between 10 and 1035 bytes into a destination of size 1024
+#12 9.649  1635 |         sprintf(string, "%sACCESS: %s%s\n", string,
+#12 9.649       |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#12 9.649  1636 |           ca_read_access(chId)?"R":"", ca_write_access(chId)?"W":"");
+#12 9.649       |           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#12 9.649 ../medmCA.c:1635:9: warning: 'sprintf' argument 3 overlaps destination object 'string' [-Wrestrict]
+#12 9.650 ../medmCA.c:1563:10: note: destination object referenced by 'restrict'-qualified argument 1 was declared here
+#12 9.650  1563 |     char string[1024];     /* Danger: Fixed length */
+#12 9.650       |          ^~~~~~
+#12 9.650 ../medmCA.c:1637:28: warning: 'HOST: ' directive writing 6 bytes into a region of size between 1 and 1024 [-Wformat-overflow=]
+#12 9.650  1637 |         sprintf(string, "%sHOST: %s\n", string, ca_host_name(chId));
+#12 9.650       |                            ^~~~~~
+#12 9.650 ../medmCA.c:1637:9: note: 'sprintf' output 8 or more bytes (assuming 1031) into a destination of size 1024
+#12 9.650  1637 |         sprintf(string, "%sHOST: %s\n", string, ca_host_name(chId));
+#12 9.650       |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#12 9.650 ../medmCA.c:1637:9: warning: 'sprintf' argument 3 overlaps destination object 'string' [-Wrestrict]
+#12 9.650 ../medmCA.c:1563:10: note: destination object referenced by 'restrict'-qualified argument 1 was declared here
+#12 9.650  1563 |     char string[1024];     /* Danger: Fixed length */
+#12 9.650       |          ^~~~~~
+#12 9.651 ../medmCA.c:1646:36: warning: 'FIRST VALUE: ' directive writing 13 bytes into a region of size between 1 and 1024 [-Wformat-overflow=]
+#12 9.651  1646 |                 sprintf(string, "%sFIRST VALUE: %s\n", string,
+#12 9.651       |                                    ^~~~~~~~~~~~~
+#12 9.651 ../medmCA.c:1646:17: note: 'sprintf' output between 15 and 1077 bytes into a destination of size 1024
+#12 9.651  1646 |                 sprintf(string, "%sFIRST VALUE: %s\n", string,
+#12 9.651       |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#12 9.651  1647 |                   timeVal.value);
+#12 9.651       |                   ~~~~~~~~~~~~~~
+#12 9.651 ../medmCA.c:1646:17: warning: 'sprintf' argument 3 overlaps destination object 'string' [-Wrestrict]
+#12 9.651 ../medmCA.c:1563:10: note: destination object referenced by 'restrict'-qualified argument 1 was declared here
+#12 9.651  1563 |     char string[1024];     /* Danger: Fixed length */
+#12 9.651       |          ^~~~~~
+#12 9.651 ../medmCA.c:1643:36: warning: 'VALUE: ' directive writing 7 bytes into a region of size between 1 and 1024 [-Wformat-overflow=]
+#12 9.651  1643 |                 sprintf(string, "%sVALUE: %s\n", string,
+#12 9.651       |                                    ^~~~~~~
+#12 9.652 ../medmCA.c:1643:17: note: 'sprintf' output between 9 and 1071 bytes into a destination of size 1024
+#12 9.652  1643 |                 sprintf(string, "%sVALUE: %s\n", string,
+#12 9.652       |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#12 9.652  1644 |                   timeVal.value);
+#12 9.652       |                   ~~~~~~~~~~~~~~
+#12 9.652 ../medmCA.c:1643:17: warning: 'sprintf' argument 3 overlaps destination object 'string' [-Wrestrict]
+#12 9.652 ../medmCA.c:1563:10: note: destination object referenced by 'restrict'-qualified argument 1 was declared here
+#12 9.652  1563 |     char string[1024];     /* Danger: Fixed length */
+#12 9.652       |          ^~~~~~
+#12 9.652 ../medmCA.c:1661:38: warning: '%s' directive writing up to 9 bytes into a region of size between 0 and 80 [-Wformat-overflow=]
+#12 9.652  1661 |             sprintf(timeStampStr,"%s.%s", timeStampStr, fracPart);
+#12 9.652       |                                      ^~                 ~~~~~~~~
+#12 9.653 ../medmCA.c:1661:13: note: 'sprintf' output between 2 and 91 bytes into a destination of size 81
+#12 9.653  1661 |             sprintf(timeStampStr,"%s.%s", timeStampStr, fracPart);
+#12 9.653       |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#12 9.653 ../medmCA.c:1661:13: warning: 'sprintf' argument 3 overlaps destination object 'timeStampStr' [-Wrestrict]
+#12 9.653 ../medmCA.c:1552:10: note: destination object referenced by 'restrict'-qualified argument 1 was declared here
+#12 9.653  1552 |     char timeStampStr[TIME_STRING_MAX];
+#12 9.653       |          ^~~~~~~~~~~~
+#12 9.653 ../medmCA.c:1663:32: warning: 'STAMP: ' directive writing 7 bytes into a region of size between 1 and 1024 [-Wformat-overflow=]
+#12 9.653  1663 |             sprintf(string, "%sSTAMP: %s\n", string, timeStampStr);
+#12 9.653       |                                ^~~~~~~
+#12 9.654 ../medmCA.c:1663:13: note: 'sprintf' output between 9 and 1112 bytes into a destination of size 1024
+#12 9.654  1663 |             sprintf(string, "%sSTAMP: %s\n", string, timeStampStr);
+#12 9.654       |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#12 9.654 ../medmCA.c:1663:13: warning: 'sprintf' argument 3 overlaps destination object 'string' [-Wrestrict]
+#12 9.654 ../medmCA.c:1563:10: note: destination object referenced by 'restrict'-qualified argument 1 was declared here
+#12 9.654  1563 |     char string[1024];     /* Danger: Fixed length */
+#12 9.654       |          ^~~~~~
+#12 9.654 ../medmCA.c:1706:32: warning: 'STATES: ' directive writing 8 bytes into a region of size between 1 and 1024 [-Wformat-overflow=]
+#12 9.654  1706 |             sprintf(string, "%sSTATES: %d\n",
+#12 9.654       |                                ^~~~~~~~
+#12 9.655 ../medmCA.c:1706:13: note: 'sprintf' output between 11 and 1044 bytes into a destination of size 1024
+#12 9.655  1706 |             sprintf(string, "%sSTATES: %d\n",
+#12 9.655       |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#12 9.655  1707 |               string, (int)(pR->hopr+1.1));
+#12 9.655       |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#12 9.655 ../medmCA.c:1706:13: warning: 'sprintf' argument 3 overlaps destination object 'string' [-Wrestrict]
+#12 9.655 ../medmCA.c:1563:10: note: destination object referenced by 'restrict'-qualified argument 1 was declared here
+#12 9.655  1563 |     char string[1024];     /* Danger: Fixed length */
+#12 9.655       |          ^~~~~~
+#12 9.655 ../medmCA.c:1711:40: warning: 'STATE ' directive writing 6 bytes into a region of size between 1 and 1024 [-Wformat-overflow=]
+#12 9.655  1711 |                     sprintf(string, "%sSTATE %2d: %s\n",
+#12 9.655       |                                        ^~~~~~
+#12 9.655 ../medmCA.c:1711:37: note: directive argument in the range [0, 15]
+#12 9.655  1711 |                     sprintf(string, "%sSTATE %2d: %s\n",
+#12 9.655       |                                     ^~~~~~~~~~~~~~~~~~~
+#12 9.656 ../medmCA.c:1711:21: note: 'sprintf' output 12 or more bytes (assuming 1035) into a destination of size 1024
+#12 9.656  1711 |                     sprintf(string, "%sSTATE %2d: %s\n",
+#12 9.656       |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#12 9.656  1712 |                       string, j, pR->stateStrings[j]);
+#12 9.656       |                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#12 9.656 ../medmCA.c:1711:21: warning: 'sprintf' argument 3 overlaps destination object 'string' [-Wrestrict]
+#12 9.656 ../medmCA.c:1563:10: note: destination object referenced by 'restrict'-qualified argument 1 was declared here
+#12 9.656  1563 |     char string[1024];     /* Danger: Fixed length */
+#12 9.656       |          ^~~~~~
+#12 9.656 ../medmCA.c:1728:36: warning: 'PRECISION: ' directive writing 11 bytes into a region of size between 1 and 1024 [-Wformat-overflow=]
+#12 9.656  1728 |                 sprintf(string, "%sPRECISION: %d [Bad Value]\n",
+#12 9.656       |                                    ^~~~~~~~~~~
+#12 9.656 ../medmCA.c:1728:33: note: directive argument in the range [-32768, 32767]
+#12 9.656  1728 |                 sprintf(string, "%sPRECISION: %d [Bad Value]\n",
+#12 9.656       |                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#12 9.657 ../medmCA.c:1728:17: note: 'sprintf' output between 26 and 1054 bytes into a destination of size 1024
+#12 9.657  1728 |                 sprintf(string, "%sPRECISION: %d [Bad Value]\n",
+#12 9.657       |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#12 9.657  1729 |                   string, pR->precision);
+#12 9.657       |                   ~~~~~~~~~~~~~~~~~~~~~~
+#12 9.657 ../medmCA.c:1728:17: warning: 'sprintf' argument 3 overlaps destination object 'string' [-Wrestrict]
+#12 9.657 ../medmCA.c:1563:10: note: destination object referenced by 'restrict'-qualified argument 1 was declared here
+#12 9.657  1563 |     char string[1024];     /* Danger: Fixed length */
+#12 9.657       |          ^~~~~~
+#12 9.657 ../medmCA.c:1725:36: warning: 'PRECISION: ' directive writing 11 bytes into a region of size between 1 and 1024 [-Wformat-overflow=]
+#12 9.657  1725 |                 sprintf(string, "%sPRECISION: %d\n",
+#12 9.657       |                                    ^~~~~~~~~~~
+#12 9.657 ../medmCA.c:1725:33: note: directive argument in the range [0, 17]
+#12 9.657  1725 |                 sprintf(string, "%sPRECISION: %d\n",
+#12 9.657       |                                 ^~~~~~~~~~~~~~~~~~~
+#12 9.658 ../medmCA.c:1725:17: note: 'sprintf' output between 14 and 1038 bytes into a destination of size 1024
+#12 9.658  1725 |                 sprintf(string, "%sPRECISION: %d\n",
+#12 9.658       |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#12 9.658  1726 |                   string, pR->precision);
+#12 9.658       |                   ~~~~~~~~~~~~~~~~~~~~~~
+#12 9.658 ../medmCA.c:1725:17: warning: 'sprintf' argument 3 overlaps destination object 'string' [-Wrestrict]
+#12 9.658 ../medmCA.c:1563:10: note: destination object referenced by 'restrict'-qualified argument 1 was declared here
+#12 9.658  1563 |     char string[1024];     /* Danger: Fixed length */
+#12 9.658       |          ^~~~~~
+#12 9.658 ../medmCA.c:1731:32: warning: 'HOPR: ' directive writing 6 bytes into a region of size between 1 and 1024 [-Wformat-overflow=]
+#12 9.658  1731 |             sprintf(string, "%sHOPR: %g  LOPR: %g\n",
+#12 9.658       |                                ^~~~~~
+#12 9.659 ../medmCA.c:1731:29: note: assuming directive output of 12 bytes
+#12 9.659  1731 |             sprintf(string, "%sHOPR: %g  LOPR: %g\n",
+#12 9.659       |                             ^~~~~~~~~~~~~~~~~~~~~~~~
+#12 9.659 ../medmCA.c:1731:29: note: assuming directive output of 12 bytes
+#12 9.659 ../medmCA.c:1731:13: note: 'sprintf' output between 18 and 1065 bytes into a destination of size 1024
+#12 9.659  1731 |             sprintf(string, "%sHOPR: %g  LOPR: %g\n",
+#12 9.659       |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#12 9.659  1732 |               string, pR->hopr, pR->lopr);
+#12 9.659       |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#12 9.659 ../medmCA.c:1731:13: warning: 'sprintf' argument 3 overlaps destination object 'string' [-Wrestrict]
+#12 9.659 ../medmCA.c:1563:10: note: destination object referenced by 'restrict'-qualified argument 1 was declared here
+#12 9.659  1563 |     char string[1024];     /* Danger: Fixed length */
+#12 9.659       |          ^~~~~~
+#12 9.660 ../medmCA.c:1719:32: warning: 'HOPR: ' directive writing 6 bytes into a region of size between 1 and 1024 [-Wformat-overflow=]
+#12 9.660  1719 |             sprintf(string, "%sHOPR: %g  LOPR: %g\n",
+#12 9.660       |                                ^~~~~~
+#12 9.660 ../medmCA.c:1719:29: note: assuming directive output of 12 bytes
+#12 9.660  1719 |             sprintf(string, "%sHOPR: %g  LOPR: %g\n",
+#12 9.660       |                             ^~~~~~~~~~~~~~~~~~~~~~~~
+#12 9.660 ../medmCA.c:1719:29: note: assuming directive output of 12 bytes
+#12 9.660 ../medmCA.c:1719:13: note: 'sprintf' output between 18 and 1065 bytes into a destination of size 1024
+#12 9.660  1719 |             sprintf(string, "%sHOPR: %g  LOPR: %g\n",
+#12 9.660       |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#12 9.660  1720 |               string, pR->hopr, pR->lopr);
+#12 9.660       |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#12 9.660 ../medmCA.c:1719:13: warning: 'sprintf' argument 3 overlaps destination object 'string' [-Wrestrict]
+#12 9.660 ../medmCA.c:1563:10: note: destination object referenced by 'restrict'-qualified argument 1 was declared here
+#12 9.660  1563 |     char string[1024];     /* Danger: Fixed length */
+#12 9.660       |          ^~~~~~
+#12 9.661 ../medmCA.c:1737:30: warning: 'sprintf' may write a terminating nul past the end of the destination [-Wformat-overflow=]
+#12 9.661  1737 |         sprintf(string, "%s\n", string);
+#12 9.661       |                              ^
+#12 9.661 ../medmCA.c:1737:9: note: 'sprintf' output between 2 and 1025 bytes into a destination of size 1024
+#12 9.661  1737 |         sprintf(string, "%s\n", string);
+#12 9.661       |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#12 9.661 ../medmCA.c:1737:9: warning: 'sprintf' argument 3 overlaps destination object 'string' [-Wrestrict]
+#12 9.661 ../medmCA.c:1563:10: note: destination object referenced by 'restrict'-qualified argument 1 was declared here
+#12 9.661  1563 |     char string[1024];     /* Danger: Fixed length */
+#12 9.661       |          ^~~~~~
+#12 9.796 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -c ../actions.c
+#12 9.854 ../actions.c: In function 'StartDrag':
+#12 9.854 ../actions.c:562:17: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+#12 9.854   562 |         Boolean status;
+#12 9.854       |                 ^~~~~~
+#12 9.928 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -c ../bubbleHelp.c
+#12 10.01 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -c ../callbacks.c
+#12 10.11 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -c ../browserHelp.c
+#12 10.13 ../browserHelp.c: In function 'callBrowser':
+#12 10.13 ../browserHelp.c:75:9: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+#12 10.13    75 |     int status;
+#12 10.13       |         ^~~~~~
+#12 10.16 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -c ../channelPalette.c
+#12 10.22 ../channelPalette.c: In function 'createChannel':
+#12 10.22 ../channelPalette.c:133:12: warning: variable 'channelHelpPDM' set but not used [-Wunused-but-set-variable]
+#12 10.22   133 |     Widget channelHelpPDM;
+#12 10.22       |            ^~~~~~~~~~~~~~
+#12 10.25 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -c ../colorPalette.c
+#12 10.36 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -c ../dialogs.c
+#12 10.42 ../dialogs.c: In function 'createPvLimitsDlg':
+#12 10.42 ../dialogs.c:566:30: warning: variable 'wsave' set but not used [-Wunused-but-set-variable]
+#12 10.42   566 |     Widget pane, w, wparent, wsave;
+#12 10.42       |                              ^~~~~
+#12 10.42 ../dialogs.c: In function 'printSetupDialogCallback':
+#12 10.42 ../dialogs.c:1965:9: warning: variable 'button' set but not used [-Wunused-but-set-variable]
+#12 10.42  1965 |     int button;
+#12 10.42       |         ^~~~~~
+#12 10.50 ../dialogs.c: In function 'refreshDisplayListDlg.part.0':
+#12 10.50 ../dialogs.c:1243:34: warning: '=' directive writing 1 byte into a region of size between 0 and 255 [-Wformat-overflow=]
+#12 10.50  1243 |             sprintf(string,"%s %s=%s", string,
+#12 10.50       |                                  ^
+#12 10.50 ../dialogs.c:1243:13: note: 'sprintf' output 3 or more bytes (assuming 258) into a destination of size 256
+#12 10.50  1243 |             sprintf(string,"%s %s=%s", string,
+#12 10.50       |             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#12 10.50  1244 |               di->nameValueTable[i].name,  di->nameValueTable[i].value);
+#12 10.50       |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#12 10.50 ../dialogs.c:1243:13: warning: 'sprintf' argument 3 overlaps destination object 'string' [-Wrestrict]
+#12 10.50 ../dialogs.c:1229:10: note: destination object referenced by 'restrict'-qualified argument 1 was declared here
+#12 10.50  1229 |     char string[MAX_LENGTH];     /* Danger fixed length */
+#12 10.50       |          ^~~~~~
+#12 10.64 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -c ../display.c
+#12 10.87 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -c ../eventHandlers.c
+#12 10.93 ../eventHandlers.c: In function 'handleEditKeyPress':
+#12 10.93 ../eventHandlers.c:1065:53: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+#12 10.93  1065 |             XtTranslateKeycode(display,key->keycode,(Modifiers)NULL,
+#12 10.93       |                                                     ^
+#12 11.07 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -c ../help.c
+#12 11.13 ../help.c: In function 'errMsgSendDlgSendButtonCb':
+#12 11.13 ../help.c:472:9: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+#12 11.13   472 |     int status;
+#12 11.13       |         ^~~~~~
+#12 11.29 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -c ../medm.c
+#12 11.35 ../medm.c: In function 'medmSaveDisplay':
+#12 11.35 ../medm.c:1783:19: warning: variable 'strLen2' set but not used [-Wunused-but-set-variable]
+#12 11.35  1783 |     int  strLen1, strLen2, strLen3, strLen4;
+#12 11.35       |                   ^~~~~~~
+#12 11.36 ../medm.c: In function 'main':
+#12 11.36 ../medm.c:3432:37: warning: passing argument 2 of 'XtAppSetErrorHandler' makes '__attribute__((noreturn))' qualified function pointer from unqualified [-Wdiscarded-qualifiers]
+#12 11.36  3432 |     XtAppSetErrorHandler(appContext,xtErrorHandler);
+#12 11.36       |                                     ^~~~~~~~~~~~~~
+#12 11.36 In file included from ../xtParams.h:24,
+#12 11.36                  from ../medm.h:71,
+#12 11.36                  from ../medm.c:33:
+#12 11.36 /usr/include/X11/Intrinsic.h:1771:5: note: expected '__attribute__((noreturn)) void (*)(char *)' but argument is of type 'void (*)(char *)'
+#12 11.36  1771 |     XtErrorHandler      /* handler */ _X_NORETURN
+#12 11.36       |     ^
+#12 11.52 ../medm.c: In function 'medmExit':
+#12 11.52 ../medm.c:1972:45: warning: '%s' directive writing up to 511 bytes into a region of size 498 [-Wformat-overflow=]
+#12 11.52  1972 |                 sprintf(str,"Save display \"%s\" before exit?",filename);
+#12 11.52       |                                             ^~
+#12 11.52 ../medm.c:1972:17: note: 'sprintf' output between 29 and 540 bytes into a destination of size 512
+#12 11.52  1972 |                 sprintf(str,"Save display \"%s\" before exit?",filename);
+#12 11.52       |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#12 11.57 ../medm.c: In function 'mainFileMenuSimpleCallback':
+#12 11.57 ../medm.c:1578:41: warning: '%s' directive writing up to 511 bytes into a region of size 506 [-Wformat-overflow=]
+#12 11.57  1578 |                     sprintf(str,"Save \"%s\" ?",displayInfo->dlFile->name);
+#12 11.57       |                                         ^~
+#12 11.57 ../medm.c:1578:21: note: 'sprintf' output between 10 and 521 bytes into a destination of size 512
+#12 11.57  1578 |                     sprintf(str,"Save \"%s\" ?",displayInfo->dlFile->name);
+#12 11.57       |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#12 11.79 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -c ../medmArc.c
+#12 11.93 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -c ../medmBar.c
+#12 12.10 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -c ../medmByte.c
+#12 12.23 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -c ../medmChoiceButtons.c
+#12 12.43 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -c ../medmCommon.c
+#12 12.78 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -c ../medmComposite.c
+#12 13.01 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -c ../medmControl.c
+#12 13.09 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -c ../medmDisplay.c
+#12 13.15 ../medmDisplay.c: In function 'createExecuteModeMenu':
+#12 13.15 ../medmDisplay.c:445:12: warning: variable 'w' set but not used [-Wunused-but-set-variable]
+#12 13.15   445 |     Widget w;
+#12 13.15       |            ^
+#12 13.26 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -c ../medmImage.c
+#12 13.44 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -c ../medmIndicator.c
+#12 13.54 ../medmIndicator.c: In function 'indicatorUpdateGraphicalInfoCb':
+#12 13.54 ../medmIndicator.c:326:13: warning: 'hopr.fval' may be used uninitialized [-Wmaybe-uninitialized]
+#12 13.54   326 |     if((hopr.fval == 0.0) && (lopr.fval == 0.0)) {
+#12 13.54       |         ~~~~^~~~~
+#12 13.54 ../medmIndicator.c:296:13: note: 'hopr' declared here
+#12 13.54   296 |     XcVType hopr, lopr, val;
+#12 13.54       |             ^~~~
+#12 13.59 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -c ../medmMenu.c
+#12 13.78 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -c ../medmMessageButton.c
+#12 13.95 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -c ../medmMeter.c
+#12 14.05 ../medmMeter.c: In function 'meterUpdateGraphicalInfoCb':
+#12 14.05 ../medmMeter.c:301:13: warning: 'hopr.fval' may be used uninitialized [-Wmaybe-uninitialized]
+#12 14.05   301 |     if((hopr.fval == 0.0) && (lopr.fval == 0.0)) {
+#12 14.05       |         ~~~~^~~~~
+#12 14.05 ../medmMeter.c:271:13: note: 'hopr' declared here
+#12 14.05   271 |     XcVType hopr, lopr, val;
+#12 14.05       |             ^~~~
+#12 14.11 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -c ../medmMonitor.c
+#12 14.27 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -c ../medmOval.c
+#12 14.40 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -c ../medmPixmap.c
+#12 14.48 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -c ../medmPolygon.c
+#12 14.83 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -c ../medmPolyline.c
+#12 15.16 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -c ../medmRectangle.c
+#12 15.29 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -c ../medmRelatedDisplay.c
+#12 15.35 ../medmRelatedDisplay.c: In function 'executeDlRelatedDisplay':
+#12 15.35 ../medmRelatedDisplay.c:216:12: warning: variable 'widget' set but not used [-Wunused-but-set-variable]
+#12 15.35   216 |     Widget widget;
+#12 15.35       |            ^~~~~~
+#12 15.54 ../medmRelatedDisplay.c: In function 'relatedDisplayCreateNewDisplay':
+#12 15.54 ../medmRelatedDisplay.c:931:48: warning: '%s' directive writing up to 511 bytes into a region of size 481 [-Wformat-overflow=]
+#12 15.54   931 |               "Cannot open related display:\n  %s\nCheck %s\n",
+#12 15.54       |                                                ^~
+#12 15.54   932 |               filename, "EPICS_DISPLAY_PATH");
+#12 15.54       |               ~~~~~~~~                          
+#12 15.54 ../medmRelatedDisplay.c:930:13: note: 'sprintf' output between 58 and 569 bytes into a destination of size 512
+#12 15.54   930 |             sprintf(token,
+#12 15.54       |             ^~~~~~~~~~~~~~
+#12 15.54   931 |               "Cannot open related display:\n  %s\nCheck %s\n",
+#12 15.54       |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#12 15.54   932 |               filename, "EPICS_DISPLAY_PATH");
+#12 15.54       |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#12 15.60 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -c ../medmShellCommand.c
+#12 15.66 ../medmShellCommand.c: In function 'executeDlShellCommand':
+#12 15.66 ../medmShellCommand.c:132:12: warning: variable 'widget' set but not used [-Wunused-but-set-variable]
+#12 15.66   132 |     Widget widget;
+#12 15.66       |            ^~~~~~
+#12 15.84 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -c ../medmStripChart.c
+#12 15.90 ../medmStripChart.c: In function 'stripChartConfig':
+#12 15.90 ../medmStripChart.c:654:41: warning: the comparison will always evaluate as 'false' for the address of 'title' will never be NULL [-Waddress]
+#12 15.90   654 |         if((dlStripChart->plotcom.title == NULL)
+#12 15.90       |                                         ^~
+#12 15.90 In file included from ../siteSpecific.h:225,
+#12 15.90                  from ../medm.h:111,
+#12 15.90                  from ../medmStripChart.c:27:
+#12 15.90 ../displayList.h:522:10: note: 'title' declared here
+#12 15.90   522 |     char title[MAX_TOKEN_LENGTH];
+#12 15.90       |          ^~~~~
+#12 15.90 ../medmStripChart.c:664:42: warning: the comparison will always evaluate as 'false' for the address of 'xlabel' will never be NULL [-Waddress]
+#12 15.90   664 |         if((dlStripChart->plotcom.xlabel == NULL)
+#12 15.90       |                                          ^~
+#12 15.90 ../displayList.h:523:10: note: 'xlabel' declared here
+#12 15.90   523 |     char xlabel[MAX_TOKEN_LENGTH];
+#12 15.90       |          ^~~~~~
+#12 15.90 ../medmStripChart.c:674:42: warning: the comparison will always evaluate as 'false' for the address of 'ylabel' will never be NULL [-Waddress]
+#12 15.90   674 |         if((dlStripChart->plotcom.ylabel == NULL)
+#12 15.90       |                                          ^~
+#12 15.90 ../displayList.h:524:10: note: 'ylabel' declared here
+#12 15.90   524 |     char ylabel[MAX_TOKEN_LENGTH];
+#12 15.90       |          ^~~~~~
+#12 15.90 ../medmStripChart.c:742:8: warning: the comparison will always evaluate as 'true' for the address of 'title' will never be NULL [-Waddress]
+#12 15.90   742 |     if(dlStripChart->plotcom.title) {
+#12 15.90       |        ^~~~~~~~~~~~
+#12 15.90 ../displayList.h:522:10: note: 'title' declared here
+#12 15.90   522 |     char title[MAX_TOKEN_LENGTH];
+#12 15.90       |          ^~~~~
+#12 15.90 ../medmStripChart.c:757:8: warning: the comparison will always evaluate as 'true' for the address of 'ylabel' will never be NULL [-Waddress]
+#12 15.90   757 |     if(dlStripChart->plotcom.ylabel) {
+#12 15.90       |        ^~~~~~~~~~~~
+#12 15.90 ../displayList.h:524:10: note: 'ylabel' declared here
+#12 15.90   524 |     char ylabel[MAX_TOKEN_LENGTH];
+#12 15.90       |          ^~~~~~
+#12 15.90 ../medmStripChart.c:758:13: warning: variable 'textWidth' set but not used [-Wunused-but-set-variable]
+#12 15.90   758 |         int textWidth;
+#12 15.90       |             ^~~~~~~~~
+#12 15.90 ../medmStripChart.c:954:16: warning: the comparison will always evaluate as 'true' for the address of 'xlabel' will never be NULL [-Waddress]
+#12 15.90   954 |             if((dlStripChart->plotcom.xlabel)
+#12 15.90       |                ^
+#12 15.90 ../displayList.h:523:10: note: 'xlabel' declared here
+#12 15.90   523 |     char xlabel[MAX_TOKEN_LENGTH];
+#12 15.90       |          ^~~~~~
+#12 15.90 ../medmStripChart.c:564:9: warning: variable 'dropTitleLabel' set but not used [-Wunused-but-set-variable]
+#12 15.90   564 |     int dropTitleLabel = False;
+#12 15.90       |         ^~~~~~~~~~~~~~
+#12 15.90 ../medmStripChart.c:563:9: warning: variable 'dropYAxisUnitLabel' set but not used [-Wunused-but-set-variable]
+#12 15.90   563 |     int dropYAxisUnitLabel = False;
+#12 15.90       |         ^~~~~~~~~~~~~~~~~~
+#12 15.90 ../medmStripChart.c: In function 'stripChartUpdateGraphicalInfoCb':
+#12 15.90 ../medmStripChart.c:1188:25: warning: variable 'val' set but not used [-Wunused-but-set-variable]
+#12 15.90  1188 |     XcVType hopr, lopr, val;
+#12 15.90       |                         ^~~
+#12 15.91 ../medmStripChart.c: In function 'stripChartDialogCreateDialog':
+#12 15.91 ../medmStripChart.c:2165:30: warning: variable 'labels' set but not used [-Wunused-but-set-variable]
+#12 15.91  2165 |     Widget columns[SC_COLS], labels[SC_COLS];
+#12 15.91       |                              ^~~~~~
+#12 15.91 ../medmStripChart.c:2165:12: warning: variable 'columns' set but not used [-Wunused-but-set-variable]
+#12 15.91  2165 |     Widget columns[SC_COLS], labels[SC_COLS];
+#12 15.91       |            ^~~~~~~
+#12 16.30 ../medmStripChart.c: In function 'stripChartUpdateGraphicalInfoCb':
+#12 16.30 ../medmStripChart.c:1259:57: warning: 'lopr.fval' may be used uninitialized [-Wmaybe-uninitialized]
+#12 16.30  1259 |         dlStripChart->pen[row].limits.loprChannel = lopr.fval;
+#12 16.30       |                                                     ~~~~^~~~~
+#12 16.30 ../medmStripChart.c:1188:19: note: 'lopr.fval' was declared here
+#12 16.30  1188 |     XcVType hopr, lopr, val;
+#12 16.30       |                   ^~~~
+#12 16.30 ../medmStripChart.c:1249:19: warning: 'hopr.fval' may be used uninitialized [-Wmaybe-uninitialized]
+#12 16.30  1249 |         hopr.fval += 1.0;
+#12 16.30       |                   ^~
+#12 16.30 ../medmStripChart.c:1188:13: note: 'hopr.fval' was declared here
+#12 16.30  1188 |     XcVType hopr, lopr, val;
+#12 16.30       |             ^~~~
+#12 16.45 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -c ../medmText.c
+#12 16.51 ../medmText.c: In function 'handleTextCreate':
+#12 16.51 ../medmText.c:562:53: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+#12 16.51   562 |             XtTranslateKeycode(display,key->keycode,(Modifiers)NULL,
+#12 16.51       |                                                     ^
+#12 16.62 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -c ../medmTextEntry.c
+#12 16.68 ../medmTextEntry.c: In function 'textEntryUpdateGraphicalInfoCb':
+#12 16.68 ../medmTextEntry.c:676:25: warning: variable 'val' set but not used [-Wunused-but-set-variable]
+#12 16.68   676 |     XcVType hopr, lopr, val;
+#12 16.68       |                         ^~~
+#12 16.85 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -c ../medmTextUpdate.c
+#12 16.91 ../medmTextUpdate.c: In function 'textUpdateUpdateGraphicalInfoCb':
+#12 16.91 ../medmTextUpdate.c:467:25: warning: variable 'val' set but not used [-Wunused-but-set-variable]
+#12 16.91   467 |     XcVType hopr, lopr, val;
+#12 16.91       |                         ^~~
+#12 17.03 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -c ../medmValuator.c
+#12 17.09 ../medmValuator.c: In function 'valuatorUpdateGraphicalInfoCb':
+#12 17.09 ../medmValuator.c:533:25: warning: variable 'val' set but not used [-Wunused-but-set-variable]
+#12 17.09   533 |     XcVType hopr, lopr, val;
+#12 17.09       |                         ^~~
+#12 17.09 ../medmValuator.c: In function 'handleValuatorExpose':
+#12 17.09 ../medmValuator.c:634:17: warning: variable 'pr' set but not used [-Wunused-but-set-variable]
+#12 17.09   634 |         Record *pr;
+#12 17.09       |                 ^~
+#12 17.09 ../medmValuator.c:710:28: warning: the comparison will always evaluate as 'true' for the address of 'stringValue' will never be NULL [-Waddress]
+#12 17.09   710 |             if(stringValue != NULL) {
+#12 17.09       |                            ^~
+#12 17.09 ../medmValuator.c:619:10: note: 'stringValue' declared here
+#12 17.09   619 |     char stringValue[40];
+#12 17.09       |          ^~~~~~~~~~~
+#12 17.09 ../medmValuator.c:725:28: warning: the comparison will always evaluate as 'true' for the address of 'stringValue' will never be NULL [-Waddress]
+#12 17.09   725 |             if(stringValue != NULL) {
+#12 17.09       |                            ^~
+#12 17.09 ../medmValuator.c:619:10: note: 'stringValue' declared here
+#12 17.09   619 |     char stringValue[40];
+#12 17.09       |          ^~~~~~~~~~~
+#12 17.09 ../medmValuator.c:771:28: warning: the comparison will always evaluate as 'true' for the address of 'stringValue' will never be NULL [-Waddress]
+#12 17.09   771 |             if(stringValue != NULL) {
+#12 17.09       |                            ^~
+#12 17.09 ../medmValuator.c:619:10: note: 'stringValue' declared here
+#12 17.09   619 |     char stringValue[40];
+#12 17.09       |          ^~~~~~~~~~~
+#12 17.09 ../medmValuator.c:787:28: warning: the comparison will always evaluate as 'true' for the address of 'stringValue' will never be NULL [-Waddress]
+#12 17.09   787 |             if(stringValue != NULL) {
+#12 17.09       |                            ^~
+#12 17.09 ../medmValuator.c:619:10: note: 'stringValue' declared here
+#12 17.09   619 |     char stringValue[40];
+#12 17.09       |          ^~~~~~~~~~~
+#12 17.09 ../medmValuator.c:616:38: warning: variable 'textHeight' set but not used [-Wunused-but-set-variable]
+#12 17.09   616 |     int useableWidth, useableHeight, textHeight, textWidth, startX, startY;
+#12 17.09       |                                      ^~~~~~~~~~
+#12 17.09 ../medmValuator.c: In function 'valuatorRedrawValue':
+#12 17.09 ../medmValuator.c:864:46: warning: variable 'textHeight' set but not used [-Wunused-but-set-variable]
+#12 17.09   864 |     int useableWidth = 0, useableHeight = 0, textHeight = 0, textWidth = 0,
+#12 17.09       |                                              ^~~~~~~~~~
+#12 17.24 ../medmValuator.c: In function 'valuatorUpdateGraphicalInfoCb':
+#12 17.24 ../medmValuator.c:566:46: warning: 'lopr.fval' may be used uninitialized [-Wmaybe-uninitialized]
+#12 17.24   566 |         dlValuator->limits.loprChannel = lopr.fval;
+#12 17.24       |                                          ~~~~^~~~~
+#12 17.24 ../medmValuator.c:533:19: note: 'lopr.fval' was declared here
+#12 17.24   533 |     XcVType hopr, lopr, val;
+#12 17.24       |                   ^~~~
+#12 17.24 ../medmValuator.c:562:19: warning: 'hopr.fval' may be used uninitialized [-Wmaybe-uninitialized]
+#12 17.24   562 |         hopr.fval += 1.0;
+#12 17.24       |                   ^~
+#12 17.24 ../medmValuator.c:533:13: note: 'hopr.fval' was declared here
+#12 17.24   533 |     XcVType hopr, lopr, val;
+#12 17.24       |             ^~~~
+#12 17.36 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -c ../medmWheelSwitch.c
+#12 17.52 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -c ../medmWidget.c
+#12 17.67 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -c ../objectPalette.c
+#12 17.73 ../objectPalette.c: In function 'createObject':
+#12 17.73 ../objectPalette.c:361:49: warning: variable 'miscRC' set but not used [-Wunused-but-set-variable]
+#12 17.73   361 |     Widget graphicsRC, monitorRC, controllerRC, miscRC;
+#12 17.73       |                                                 ^~~~~~
+#12 17.73 ../objectPalette.c:361:35: warning: variable 'controllerRC' set but not used [-Wunused-but-set-variable]
+#12 17.73   361 |     Widget graphicsRC, monitorRC, controllerRC, miscRC;
+#12 17.73       |                                   ^~~~~~~~~~~~
+#12 17.73 ../objectPalette.c:361:24: warning: variable 'monitorRC' set but not used [-Wunused-but-set-variable]
+#12 17.73   361 |     Widget graphicsRC, monitorRC, controllerRC, miscRC;
+#12 17.73       |                        ^~~~~~~~~
+#12 17.73 ../objectPalette.c:361:12: warning: variable 'graphicsRC' set but not used [-Wunused-but-set-variable]
+#12 17.73   361 |     Widget graphicsRC, monitorRC, controllerRC, miscRC;
+#12 17.73       |            ^~~~~~~~~~
+#12 17.78 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -c ../productDescriptionShell.c
+#12 17.87 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -c ../resourcePalette.c
+#12 18.49 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -c ../updateMonitors.c
+#12 18.64 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -c ../updateTask.c
+#12 18.86 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -c ../utils.c
+#12 18.92 ../utils.c: In function 'doRubberbanding':
+#12 18.92 ../utils.c:965:58: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+#12 18.92   965 |             XtTranslateKeycode(display, kevent->keycode, (Modifiers)NULL,
+#12 18.92       |                                                          ^
+#12 18.92 ../utils.c: In function 'doDragging':
+#12 18.92 ../utils.c:1160:58: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+#12 18.92  1160 |             XtTranslateKeycode(display, kevent->keycode, (Modifiers)NULL,
+#12 18.92       |                                                          ^
+#12 18.92 ../utils.c: In function 'doPasting':
+#12 18.92 ../utils.c:1400:58: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+#12 18.92  1400 |             XtTranslateKeycode(display, kevent->keycode, (Modifiers)NULL,
+#12 18.92       |                                                          ^
+#12 18.93 ../utils.c:1287:9: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+#12 18.93  1287 |     int status;
+#12 18.93       |         ^~~~~~
+#12 18.93 ../utils.c: In function 'doResizing':
+#12 18.93 ../utils.c:1658:58: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+#12 18.93  1658 |             XtTranslateKeycode(display, kevent->keycode, (Modifiers)NULL,
+#12 18.93       |                                                          ^
+#12 18.93 ../utils.c:1622:18: warning: variable 'cdi' set but not used [-Wunused-but-set-variable]
+#12 18.93  1622 |     DisplayInfo *cdi;
+#12 18.93       |                  ^~~
+#12 19.29 ../utils.c: In function 'findDisplay':
+#12 19.29 ../utils.c:3298:5: warning: 'strncpy' specified bound 512 equals destination size [-Wstringop-truncation]
+#12 19.29  3298 |     strncpy(pathName, filename, MAX_TOKEN_LENGTH);
+#12 19.29       |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#12 19.78 /usr/bin/gcc  -D_GNU_SOURCE -D_DEFAULT_SOURCE          -D_X86_64_ -DUNIX  -Dlinux      -O3 -g   -Wall -Werror-implicit-function-declaration    -DSCIPLOT -DMOTIF -DEDITRES  -mtune=generic     -m64  -I. -I../O.Common -I. -I. -I.. -I../../../../include/compiler/gcc -I../../../../include/os/Linux -I../../../../include -I../../../../../base/include/compiler/gcc -I../../../../../base/include/os/Linux -I../../../../../base/include          -I../../printUtils -I../../xc -I/usr/include -I/usr/include    -c ../xgif.c
+#12 19.84 ../xgif.c: In function 'initializeGIF':
+#12 19.84 ../xgif.c:157:21: warning: variable 'h' set but not used [-Wunused-but-set-variable]
+#12 19.84   157 |     unsigned int w, h;
+#12 19.84       |                     ^
+#12 19.84 ../xgif.c:157:18: warning: variable 'w' set but not used [-Wunused-but-set-variable]
+#12 19.84   157 |     unsigned int w, h;
+#12 19.84       |                  ^
+#12 19.84 ../xgif.c:156:12: warning: variable 'y' set but not used [-Wunused-but-set-variable]
+#12 19.84   156 |     int x, y;
+#12 19.84       |            ^
+#12 19.84 ../xgif.c:156:9: warning: variable 'x' set but not used [-Wunused-but-set-variable]
+#12 19.84   156 |     int x, y;
+#12 19.84       |         ^
+#12 19.84 ../xgif.c: In function 'loadGIF':
+#12 19.84 ../xgif.c:715:57: warning: the comparison will always evaluate as 'true' for the address of 'name' will never be NULL [-Waddress]
+#12 19.84   715 |     if(fp == NULL && displayInfo && displayInfo->dlFile &&
+#12 19.84       |                                                         ^~
+#12 19.84 In file included from ../siteSpecific.h:225,
+#12 19.84                  from ../medm.h:111,
+#12 19.84                  from ../xgif.c:41:
+#12 19.84 ../displayList.h:578:10: note: 'name' declared here
+#12 19.84   578 |     char name[MAX_TOKEN_LENGTH];
+#12 19.84       |          ^~~~
+#12 20.15 /usr/bin/g++ -o medm  -L/opt/base/lib/linux-x86_64 -L/opt/extensions/lib/linux-x86_64 -L/usr/lib/x86_64-linux-gnu -Wl,-rpath,/opt/base/lib/linux-x86_64 -Wl,-rpath,/opt/extensions/lib/linux-x86_64 -Wl,-rpath,/usr/lib/x86_64-linux-gnu          -rdynamic -m64          medmCartesianPlot.o medmSciPlot.o SciPlot.o medmCA.o actions.o bubbleHelp.o callbacks.o browserHelp.o channelPalette.o colorPalette.o dialogs.o display.o eventHandlers.o help.o medm.o medmArc.o medmBar.o medmByte.o medmChoiceButtons.o medmCommon.o medmComposite.o medmControl.o medmDisplay.o medmImage.o medmIndicator.o medmMenu.o medmMessageButton.o medmMeter.o medmMonitor.o medmOval.o medmPixmap.o medmPolygon.o medmPolyline.o medmRectangle.o medmRelatedDisplay.o medmShellCommand.o medmStripChart.o medmText.o medmTextEntry.o medmTextUpdate.o medmValuator.o medmWheelSwitch.o medmWidget.o objectPalette.o productDescriptionShell.o resourcePalette.o updateMonitors.o updateTask.o utils.o xgif.o   -lANLwidgets -lPrintUtils -lca -lCom -lXm -lXt -lXmu -lX11 -lXext   -lpthread   -lreadline -lm -lrt -ldl -lgcc
+#12 20.24 Installing created executable ../../../../bin/linux-x86_64/medm
+#12 20.25 mkdir ../../../../bin
+#12 20.25 mkdir ../../../../bin/linux-x86_64
+#12 20.25 make[3]: Leaving directory '/opt/extensions/src/medm-MEDM3_1_11/medm/O.linux-x86_64'
+#12 20.25 make[2]: Leaving directory '/opt/extensions/src/medm-MEDM3_1_11/medm'
+#12 20.25 make[1]: Leaving directory '/opt/extensions/src/medm-MEDM3_1_11'
+#12 20.28 make -C ./medm install
+#12 20.29 make[1]: Entering directory '/opt/extensions/src/medm-MEDM3_1_11'
+#12 20.31 make -C ./printUtils install
+#12 20.31 make[2]: Entering directory '/opt/extensions/src/medm-MEDM3_1_11/printUtils'
+#12 20.33 make -C O.linux-x86_64 -f ../Makefile TOP=../../../.. \
+#12 20.33     T_A=linux-x86_64 install
+#12 20.33 make[3]: Entering directory '/opt/extensions/src/medm-MEDM3_1_11/printUtils/O.linux-x86_64'
+#12 20.37 make[3]: Nothing to be done for 'install'.
+#12 20.37 make[3]: Leaving directory '/opt/extensions/src/medm-MEDM3_1_11/printUtils/O.linux-x86_64'
+#12 20.37 make[2]: Leaving directory '/opt/extensions/src/medm-MEDM3_1_11/printUtils'
+#12 20.37 make -C ./xc install
+#12 20.37 make[2]: Entering directory '/opt/extensions/src/medm-MEDM3_1_11/xc'
+#12 20.40 make -C O.linux-x86_64 -f ../Makefile TOP=../../../.. \
+#12 20.40     T_A=linux-x86_64 install
+#12 20.40 make[3]: Entering directory '/opt/extensions/src/medm-MEDM3_1_11/xc/O.linux-x86_64'
+#12 20.44 make[3]: Nothing to be done for 'install'.
+#12 20.44 make[3]: Leaving directory '/opt/extensions/src/medm-MEDM3_1_11/xc/O.linux-x86_64'
+#12 20.44 make[2]: Leaving directory '/opt/extensions/src/medm-MEDM3_1_11/xc'
+#12 20.44 make -C ./medm install
+#12 20.44 make[2]: Entering directory '/opt/extensions/src/medm-MEDM3_1_11/medm'
+#12 20.46 make -C O.linux-x86_64 -f ../Makefile TOP=../../../.. \
+#12 20.46     T_A=linux-x86_64 install
+#12 20.46 make[3]: Entering directory '/opt/extensions/src/medm-MEDM3_1_11/medm/O.linux-x86_64'
+#12 20.51 make[3]: Nothing to be done for 'install'.
+#12 20.51 make[3]: Leaving directory '/opt/extensions/src/medm-MEDM3_1_11/medm/O.linux-x86_64'
+#12 20.51 make[2]: Leaving directory '/opt/extensions/src/medm-MEDM3_1_11/medm'
+#12 20.51 make[1]: Leaving directory '/opt/extensions/src/medm-MEDM3_1_11'
+#12 DONE 20.5s
+
+#13 [9/9] RUN echo "# -------------------------------- end EPICS MEDM" 2>&1 | tee -a "/opt/logs/dockerfile.log"
+#13 0.347 # -------------------------------- end EPICS MEDM
+#13 DONE 0.4s
+
+#14 exporting to image
+#14 exporting layers
+#14 exporting layers 0.4s done
+#14 writing image sha256:02d5d9150836b1a9e8b1063c77eedb1d4d0b74ae0f25ee5eff6b2e5b630b73cf done
+#14 naming to docker.io/prjemian/epics-medm:3.0.0 done
+#14 DONE 0.4s
+# finished:  2023-06-20T23:59:12-05:00
