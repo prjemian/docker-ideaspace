@@ -2,6 +2,6 @@
 
 git clone "${HKL_REPO_URL}"
 
-cd hkl
+pushd hkl
 git checkout --detach "${HKL_TAG}"
-cd ..
+popd
