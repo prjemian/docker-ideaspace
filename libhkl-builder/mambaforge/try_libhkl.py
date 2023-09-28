@@ -2,7 +2,6 @@
 # gobject-introspection, to access libhkl
 import gi
 gi.require_version("Hkl", "5.0")
-
 from gi.repository import Hkl as libhkl
 
 # access some content
@@ -18,6 +17,5 @@ assert UserUnits is not None
 DefaultUnits = libhkl.UnitEnum.DEFAULT
 assert DefaultUnits is not None
 
-if "VERSION" in dir(libhkl):
-    print(f"libhkl.VERSION={libhkl.VERSION}")
-print(f"gi.__version__={gi.__version__}")
+assert "VERSION" in dir(libhkl)
+assert libhkl.VERSION.startswith("v5.0.0")
