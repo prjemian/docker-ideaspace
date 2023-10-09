@@ -8,6 +8,11 @@ USER  root
 CMD ["/bin/bash"]
 WORKDIR /home
 
+ENV  \
+  CAQTDM_VERSION=V4.4.1-rc10 \
+  EPICS_BASE_VERSION=7.0.7 \
+  INSTALL_DIR=/opt/caQtDM
+
 # ------------------------------ docker developer UI
 ENV \
   EDITOR="nano" \
@@ -65,7 +70,6 @@ RUN apt-file update 2>&1 | tee -a "${LOG_DIR}/dockerfile.log"
 # yes       7.0.7       V4.4.1-rc8
 
 ENV \
-  EPICS_BASE_VERSION=7.0.2 \
   EPICS_HOST_ARCH=linux-x86_64 \
   MAKE_JOBS_N=-j8
 ENV EPICS_BASE_NAME=base-${EPICS_BASE_VERSION}
@@ -111,8 +115,7 @@ RUN \
   && echo "PATH=\${PATH}:${EPICSEXTENSIONS}/bin/${EPICS_HOST_ARCH}" >> ~/.bash_aliases
 
 # ------------------------------ caQtDM
-ENV \
-  CAQTDM_VERSION=V4.4.1-rc8
+
 ADD \
   https://github.com/caqtdm/caqtdm/archive/refs/tags/${CAQTDM_VERSION}.tar.gz \
   ${EPICSEXTENSIONS}/src
@@ -162,3 +165,12 @@ RUN \
   && qmake all.pro \
   && make "${MAKE_JOBS_N}" \
   2>&1 | tee -a "${LOG_DIR}/dockerfile.log"
+
+ENV \
+  QTDM_BININSTALL="${INSTALL_DIR}/bin/${EPICS_HOST_ARCH}/" \
+  QTDM_LIBINSTALL="${INSTALL_DIR}/lib/${EPICS_HOST_ARCH}/"
+RUN \
+  mkdir -p "/opt/caQtDM/bin/${EPICS_HOST_ARCH}/" \
+  mkdir -p "/opt/caQtDM/lib/${EPICS_HOST_ARCH}/" \
+  && sed -e '/read -p/ s/^read/#read/' -i caQtDM_Install \
+  && ./caQtDM_Install
