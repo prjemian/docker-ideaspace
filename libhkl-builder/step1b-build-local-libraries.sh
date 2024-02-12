@@ -4,6 +4,7 @@
 # gobject-introspection
 # gsl (Gnu Scientific Library)
 
+set -e
 export GOBJECT_INTROSPECTION_REPO=https://gitlab.gnome.org/GNOME/gobject-introspection.git
 export GOBJECT_INTROSPECTION_TAG=1.78.1
 
@@ -63,9 +64,13 @@ git checkout "${GOBJECT_INTROSPECTION_TAG}"
 # First, need pip
 meson --version  # 0.56.2
 apt-get install -y python3-pip
-python3 -m pip install -U meson
+python3 -m pip install --force-reinstall meson==1.2.1
+python3 -m pip install packaging
 meson --version  # 1.2.1 (on 2093-09-26)
 
+# /usr/include/glib-2.0/glib-unix.h
+
+alias python='python3 '
 meson setup _build --prefix=/usr
 cd _build
 meson configure | cat  # optional, show this information
