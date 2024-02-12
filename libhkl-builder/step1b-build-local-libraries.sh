@@ -64,7 +64,7 @@ git checkout "${GOBJECT_INTROSPECTION_TAG}"
 # First, need pip
 meson --version  # 0.56.2
 apt-get install -y python3-pip
-python3 -m pip install --force-reinstall meson==1.2.1
+python3 -m pip install --force-reinstall meson
 python3 -m pip install packaging
 meson --version  # 1.2.1 (on 2093-09-26)
 
