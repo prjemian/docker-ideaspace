@@ -16,6 +16,9 @@ DEBIAN_FRONTEND=noninteractive apt-get install -y  \
     make \
     pkg-config
 
+# turn the detached message off
+git config --global advice.detachedHead false
+
 # These will be installed later.  The OS version
 # controls which versions are installed.
     # gobject-introspection=1.66.1-1+b1 \
